@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/etapacentral2/etapa central 2.unity
+    path: Assets/_Etapa Central/Prueba 1_etapa central/etapa central 2.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Escenas/etapa central.unity
+    path: Assets/_Etapa Central/etapa central.unity
     guid: 94c2f32c5b59d834f84750c9a097a571
   - enabled: 1
-    path: Assets/Escenas/Etapa_interior.unity
+    path: Assets/_Etapa Interior/Etapa_interior.unity
     guid: ae5fa18ac0911f84fb22ed6f5b74aeb4
   - enabled: 1
-    path: "Assets/Etapa Desconexi\xF3n/etapa desconexion.unity"
+    path: "Assets/_Etapa Desconexi\xF3n/etapa desconexion.unity"
     guid: fa7bc53f530a0aa468c2b469fc902913
   m_configObjects: {}
