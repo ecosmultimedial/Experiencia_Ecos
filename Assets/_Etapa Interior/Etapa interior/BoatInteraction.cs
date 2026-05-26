@@ -6,15 +6,10 @@ using StarterAssets;
 public class BoatInteraction : MonoBehaviour
 {
     public GameObject player;
-
     public Transform playerPoint;
-
     public GameObject pressEUI;
-
     public FirstPersonController playerController;
-
     public CharacterController controller;
-
     public Animator boatAnimator;
 
     private bool playerNear = false;
@@ -27,40 +22,28 @@ public class BoatInteraction : MonoBehaviour
 
     void Update()
     {
-        if (playerNear && Input.GetKeyDown(KeyCode.E))
+        if (playerNear && !playerOnBoat && Input.GetKeyDown(KeyCode.E))
         {
             SubirAlBote();
-        }
-
-        // Mantener al jugador en el punto del bote
-        if (playerOnBoat)
-        {
-            controller.enabled = false;
-
-            player.transform.position = playerPoint.position;
-            player.transform.rotation = playerPoint.rotation;
-
-            controller.enabled = true;
         }
     }
 
     void SubirAlBote()
     {
+        // 1. Desactivar el CharacterController
         controller.enabled = false;
 
-        player.transform.position = playerPoint.position;
-        player.transform.rotation = playerPoint.rotation;
+        // 2. Parentear el player a la canoa (se mueven juntos sin conflictos de física)
+        player.transform.SetParent(playerPoint);
+        player.transform.localPosition = Vector3.zero;
+        player.transform.localRotation = Quaternion.identity;
 
-        controller.enabled = true;
-
-        // Bloquear movimiento
+        // 3. Bloquear movimiento pero dejar la cámara libre
         playerController.MoveSpeed = 0f;
         playerController.SprintSpeed = 0f;
 
         playerOnBoat = true;
-
         pressEUI.SetActive(false);
-
         boatAnimator.SetBool("startBoat", true);
     }
 
