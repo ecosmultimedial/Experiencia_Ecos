@@ -8,15 +8,16 @@ public class EtapaCentralManager : MonoBehaviour
     public GameObject canvasBienvenida;
     public AudioSource vozEnOff;
 
-private static bool primeraVez = true;
-
     private void Start()
     {
         canvasBienvenida.SetActive(false);
 
-        if (primeraVez)
+        // Solo suena si viene desde la etapa desconexion (primera vez)
+        if (PlayerPrefs.GetInt("VozCentralReproducida", 0) == 0)
         {
             MostrarBienvenida();
+            PlayerPrefs.SetInt("VozCentralReproducida", 1);
+            PlayerPrefs.Save();
         }
     }
 
@@ -24,8 +25,6 @@ private static bool primeraVez = true;
     {
         canvasBienvenida.SetActive(true);
         vozEnOff.Play();
-        primeraVez = false;
-
         Invoke(nameof(OcultarBienvenida), vozEnOff.clip.length);
     }
 
@@ -33,5 +32,4 @@ private static bool primeraVez = true;
     {
         canvasBienvenida.SetActive(false);
     }
-
 }
