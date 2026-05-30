@@ -9,12 +9,11 @@ public class TriggerVideo : MonoBehaviour
     public Renderer esferaRenderer;
 
     [Header("Colores")]
-    public Color colorVisto = new Color(0.41f, 0.91f, 0.92f); // celeste equivalente al amarillo
+    public Color colorVisto = new Color(0.41f, 0.91f, 0.92f);
     public float duracionTransicion = 1.5f;
 
     private bool fueVista = false;
-    private Color colorInicialBase;
-    private Color colorInicialEmission;
+    private Color colorInicial;
     private Material materialInstancia;
     private Coroutine transicionActual;
 
@@ -22,8 +21,7 @@ public class TriggerVideo : MonoBehaviour
     {
         videoUI.SetActive(false);
         materialInstancia = esferaRenderer.material;
-        colorInicialBase = materialInstancia.GetColor("_BaseColor");
-        colorInicialEmission = materialInstancia.GetColor("_EmissionColor");
+        colorInicial = materialInstancia.GetColor("_BaseColor");
     }
 
     void OnTriggerEnter(Collider other)
@@ -48,6 +46,9 @@ public class TriggerVideo : MonoBehaviour
                 if (transicionActual != null)
                     StopCoroutine(transicionActual);
                 transicionActual = StartCoroutine(CambiarColor());
+
+                // Avisar al manager
+                EsferasManager.Instance.EsferaVista();
             }
         }
     }
@@ -61,8 +62,8 @@ public class TriggerVideo : MonoBehaviour
             tiempo += Time.deltaTime;
             float t = tiempo / duracionTransicion;
 
-            materialInstancia.SetColor("_BaseColor", Color.Lerp(colorInicialBase, colorVisto, t));
-            materialInstancia.SetColor("_EmissionColor", Color.Lerp(colorInicialEmission, colorVisto, t));
+            materialInstancia.SetColor("_BaseColor", Color.Lerp(colorInicial, colorVisto, t));
+            materialInstancia.SetColor("_EmissionColor", Color.Lerp(colorInicial, colorVisto, t));
             yield return null;
         }
 
