@@ -12,8 +12,8 @@ public class BoatInteraction : MonoBehaviour
     public CharacterController controller;
     public Animator boatAnimator;
 
+    [HideInInspector] public bool playerOnBoat = false;
     private bool playerNear = false;
-    private bool playerOnBoat = false;
 
     void Start()
     {
@@ -28,17 +28,26 @@ public class BoatInteraction : MonoBehaviour
         }
     }
 
+    // LateUpdate para que siga la posición DESPUÉS de que la animación mueva la canoa
+    void LateUpdate()
+    {
+        if (playerOnBoat)
+        {
+            // Seguir la canoa sin parentear — player queda en raíz de jerarquía
+            player.transform.position = playerPoint.position;
+        }
+    }
+
     void SubirAlBote()
     {
-        // 1. Desactivar el CharacterController
+        // Desactivar CharacterController y dejarlo desactivado
         controller.enabled = false;
 
-        // 2. Parentear el player a la canoa (se mueven juntos sin conflictos de física)
-        player.transform.SetParent(playerPoint);
-        player.transform.localPosition = Vector3.zero;
-        player.transform.localRotation = Quaternion.identity;
+        // Posicionar el player en el punto de la canoa
+        player.transform.position = playerPoint.position;
+        player.transform.rotation = playerPoint.rotation;
 
-        // 3. Bloquear movimiento pero dejar la cámara libre
+        // Bloquear movimiento, cámara libre
         playerController.MoveSpeed = 0f;
         playerController.SprintSpeed = 0f;
 
