@@ -6,18 +6,15 @@ using StarterAssets;
 public class BoatExitSystem : MonoBehaviour
 {
     public GameObject player;
-
     public Transform exitPoint;
-
     public GameObject pressQUI;
-
     public FirstPersonController playerController;
-
     public CharacterController controller;
-
     public BoatInteraction boatInteraction;
 
+    public float detectionRadius = 8f;
     private bool playerCanExit = false;
+    private bool hasExited = false;
 
     void Start()
     {
@@ -26,6 +23,19 @@ public class BoatExitSystem : MonoBehaviour
 
     void Update()
     {
+        if (hasExited) return;
+
+        // Solo chequear si el player está en la canoa
+        if (!boatInteraction.playerOnBoat) return;
+
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (distance < detectionRadius && !playerCanExit)
+        {
+            playerCanExit = true;
+            pressQUI.SetActive(true);
+        }
+
         if (playerCanExit && Input.GetKeyDown(KeyCode.Q))
         {
             BajarDelBote();
@@ -34,38 +44,22 @@ public class BoatExitSystem : MonoBehaviour
 
     void BajarDelBote()
     {
-        controller.enabled = false;
+        hasExited = true;
+        pressQUI.SetActive(false);
 
+        // Mover al exit point
         player.transform.position = exitPoint.position;
         player.transform.rotation = exitPoint.rotation;
 
+        // Reactivar CharacterController
         controller.enabled = true;
 
         // Restaurar movimiento
         playerController.MoveSpeed = 4f;
         playerController.SprintSpeed = 6f;
 
-        // Desactivar seguimiento del bote
+        // Desactivar seguimiento
+        boatInteraction.playerOnBoat = false;
         boatInteraction.enabled = false;
-
-        pressQUI.SetActive(false);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerCanExit = true;
-            pressQUI.SetActive(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerCanExit = false;
-            pressQUI.SetActive(false);
-        }
     }
 }

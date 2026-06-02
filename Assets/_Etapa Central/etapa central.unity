@@ -322,7 +322,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 54.55
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1684,7 +1684,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2c87b071a39097d41881abc03cbd2bea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.238
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c87b071a39097d41881abc03cbd2bea,
         type: 3}
@@ -1694,7 +1694,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2c87b071a39097d41881abc03cbd2bea,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 88.222
+      value: -136.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c87b071a39097d41881abc03cbd2bea,
         type: 3}
@@ -3225,6 +3225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: MoveSpeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 453084650579209848, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
+        type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 937451010987979973, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
