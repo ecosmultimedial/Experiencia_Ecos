@@ -7043,10 +7043,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hola colo
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c3eebec9dca51264a8b05a9b7813f48a, type: 2}
+  m_sharedMaterial: {fileID: -528266326881443191, guid: c3eebec9dca51264a8b05a9b7813f48a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7070,10 +7071,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.5
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -18896,8 +18897,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2143846317}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &772511345
-BoxCollider:
+--- !u!64 &772511349
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18914,9 +18915,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5906944, y: 0.07398935, z: 0.5918624}
-  m_Center: {x: -0.015370192, y: -0.03684265, z: 0.0087720025}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2695140839281170250, guid: 6fac81cb2192af844bef3b202d2e0c6b, type: 3}
 --- !u!1 &774602459
 GameObject:
   m_ObjectHideFlags: 0
@@ -19168,7 +19170,7 @@ MonoBehaviour:
   m_HideSoftKeyboard: 0
   m_CharacterValidation: 0
   m_RegexValue: 
-  m_GlobalPointSize: 15
+  m_GlobalPointSize: 14
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -19226,7 +19228,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: c3eebec9dca51264a8b05a9b7813f48a, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -19590,10 +19592,10 @@ MonoBehaviour:
   inputField: {fileID: 830394453}
   continueButton: {fileID: 1289080781}
   questions:
-  - "\xBFQu\xE9 conversaci\xF3n pendiente ten\xE9s con vos mismo? "
-  - "\xBFCon qui\xE9n te sent\xEDs verdaderamente vos mismo? "
-  - "\xBFHay algo que sent\xEDs que te representa de verdad? "
-  - "\xBFQu\xE9 quer\xE9s que permanezca de vos en los dem\xE1s? "
+  - "\xBFQui\xE9n sos? \xBFQu\xE9 te define?"
+  - "\xBFCu\xE1ndo o con qui\xE9n te sent\xEDs vos mismo?"
+  - "\xBFHay algo que te representa de verdad?"
+  - "\xBFC\xF3mo te ven? \xBFC\xF3mo quer\xE9s que te vean?"
   finalAudio: {fileID: 1882445576}
   infinityAnimator: {fileID: 1670177998}
   flashImage: {fileID: 1170966204}
@@ -23233,10 +23235,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 997239876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.41479835, y: 0.296409}
-  m_AnchorMax: {x: 0.5956655, y: 0.37300003}
+  m_AnchorMin: {x: 0.41479835, y: 0.30239242}
+  m_AnchorMax: {x: 0.592608, y: 0.36611703}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.00000333786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1289080783
 MonoBehaviour:
@@ -23316,7 +23318,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 876f13dab54d19a40b635ca47546b7e4, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -31140,8 +31142,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 453084650579209848, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
+      propertyPath: Gravity
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 453084650579209848, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
+        type: 3}
       propertyPath: MoveSpeed
-      value: 20
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 453084650579209848, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
+        type: 3}
+      propertyPath: JumpHeight
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 453084650579209848, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -32034,8 +32046,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Introduzca su respuesta...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c3eebec9dca51264a8b05a9b7813f48a, type: 2}
+  m_sharedMaterial: {fileID: -528266326881443191, guid: c3eebec9dca51264a8b05a9b7813f48a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32059,8 +32072,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -32613,8 +32626,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c3eebec9dca51264a8b05a9b7813f48a, type: 2}
+  m_sharedMaterial: {fileID: -528266326881443191, guid: c3eebec9dca51264a8b05a9b7813f48a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32638,8 +32652,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34418,7 +34432,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 62d8f55ccf8fe2046975051b3525c7cf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7e90f255412667342b0db97d9bb13f39, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.51
   m_Pitch: 1
@@ -35658,7 +35672,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -254207788682869476, guid: 6fac81cb2192af844bef3b202d2e0c6b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 772511345}
+      addedObject: {fileID: 772511349}
     - targetCorrespondingSourceObject: {fileID: 8700725330082129686, guid: 6fac81cb2192af844bef3b202d2e0c6b,
         type: 3}
       insertIndex: -1
