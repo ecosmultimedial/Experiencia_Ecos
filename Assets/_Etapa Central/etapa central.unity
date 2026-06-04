@@ -322,7 +322,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.95
+  m_fontSize: 54.55
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3837,7 +3837,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 1965f6cc24a280a4e83fa3ff060e7076, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 2ee59bcd16416004399d5bcb31bc55d8, type: 2}
 --- !u!4 &2141775015
 Transform:
   m_ObjectHideFlags: 0
