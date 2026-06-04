@@ -9,9 +9,13 @@ public class Question3DManager : MonoBehaviour
 {
     [Header("UI")]
     public GameObject questionPanel;
+    public CanvasGroup questionCanvasGroup;
     public TextMeshProUGUI questionText;
     public TMP_InputField inputField;
     public GameObject continueButton;
+
+    [Header("Fade")]
+    public float fadeDuration = 1f;
 
     [Header("Preguntas")]
     public string[] questions;
@@ -36,7 +40,12 @@ public class Question3DManager : MonoBehaviour
     void Start()
     {
         answers = new string[questions.Length];
-        questionPanel.SetActive(false);
+
+        // Panel activo pero invisible y no interactivo
+        questionPanel.SetActive(true);
+        questionCanvasGroup.alpha = 0f;
+        questionCanvasGroup.interactable = false;
+        questionCanvasGroup.blocksRaycasts = false;
 
         finalAudio.Stop();
 
@@ -71,7 +80,6 @@ public class Question3DManager : MonoBehaviour
     // 🚀 ABRIR PANEL
     public void OpenQuestions()
     {
-        questionPanel.SetActive(true);
         ShowQuestion();
 
         Cursor.lockState = CursorLockMode.None;
@@ -80,6 +88,9 @@ public class Question3DManager : MonoBehaviour
         // Podés moverte hasta hacer click
         playerController.enabled = true;
         writing = false;
+
+        // Fade in del panel
+        StartCoroutine(FadeCanvas(questionCanvasGroup, 0f, 1f, fadeDuration, true));
     }
 
     void ShowQuestion()
@@ -103,7 +114,7 @@ public class Question3DManager : MonoBehaviour
     void Update()
     {
         // ENTER para avanzar (SIEMPRE bloqueado)
-        if (questionPanel.activeSelf && Input.GetKeyDown(KeyCode.Return))
+        if (questionCanvasGroup.alpha > 0.9f && Input.GetKeyDown(KeyCode.Return))
         {
             if (inputField.text.Trim().Length > 0 && writing)
             {
@@ -144,14 +155,20 @@ public class Question3DManager : MonoBehaviour
 
     void FinishQuestions()
     {
-        questionPanel.SetActive(false);
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         playerController.enabled = true;
 
-        StartCoroutine(FinalSequence());
+        StartCoroutine(FadeOutAndContinue());
+    }
+
+    IEnumerator FadeOutAndContinue()
+    {
+        // Fade out del panel antes de continuar
+        yield return StartCoroutine(FadeCanvas(questionCanvasGroup, 1f, 0f, fadeDuration, false));
+
+        yield return StartCoroutine(FinalSequence());
     }
 
     IEnumerator FinalSequence()
@@ -189,6 +206,36 @@ public class Question3DManager : MonoBehaviour
             c.a -= Time.deltaTime * flashSpeed;
             flashImage.color = c;
             yield return null;
+        }
+    }
+
+    // 🔥 Corrutina reutilizable para fade de CanvasGroup
+    IEnumerator FadeCanvas(CanvasGroup cg, float from, float to, float duration, bool enableAtEnd)
+    {
+        float elapsed = 0f;
+        cg.alpha = from;
+
+        // Si vamos a mostrar, activamos interacción desde el principio
+        if (enableAtEnd)
+        {
+            cg.interactable = true;
+            cg.blocksRaycasts = true;
+        }
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            cg.alpha = Mathf.Lerp(from, to, elapsed / duration);
+            yield return null;
+        }
+
+        cg.alpha = to;
+
+        // Si estamos ocultando, desactivamos interacción al final
+        if (!enableAtEnd)
+        {
+            cg.interactable = false;
+            cg.blocksRaycasts = false;
         }
     }
 

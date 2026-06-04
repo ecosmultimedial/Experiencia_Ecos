@@ -19588,9 +19588,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionPanel: {fileID: 997239875}
+  questionCanvasGroup: {fileID: 997239880}
   questionText: {fileID: 339419771}
   inputField: {fileID: 830394453}
   continueButton: {fileID: 1289080781}
+  fadeDuration: 1
   questions:
   - "\xBFQui\xE9n sos? \xBFQu\xE9 te define?"
   - "\xBFCu\xE1ndo o con qui\xE9n te sent\xEDs vos mismo?"
@@ -20980,6 +20982,7 @@ GameObject:
   - component: {fileID: 997239879}
   - component: {fileID: 997239878}
   - component: {fileID: 997239877}
+  - component: {fileID: 997239880}
   m_Layer: 0
   m_Name: Panel3D
   m_TagString: Untagged
@@ -21074,6 +21077,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!225 &997239880
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997239875}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1011800398
 PrefabInstance:
   m_ObjectHideFlags: 0
