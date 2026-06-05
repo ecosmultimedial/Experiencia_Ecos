@@ -3,7 +3,37 @@ guid: a1a4f06507a7d2c45bd0ddabb56f00c9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ABAJO
+    second: {fileID: 2100000, guid: 2c128da05a0b53d4b99eebba055773cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ARRIBA
+    second: {fileID: 2100000, guid: e3faec5205378d7448dba7397d630712, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CENTRO
+    second: {fileID: 2100000, guid: fe61ec2570398ff4499f8b122b967edb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PARTE_DE_ABAJO
+    second: {fileID: 2100000, guid: f9311b54a8463164188a448a11627d78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TUBOS
+    second: {fileID: 2100000, guid: 31516c24ae591be4daaa1642ebb7af9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UNO.001
+    second: {fileID: 2100000, guid: 32c3ac9bc49b8e449b21f423b9987cc4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
