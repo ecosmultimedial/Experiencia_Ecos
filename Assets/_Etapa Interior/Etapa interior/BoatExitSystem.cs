@@ -24,8 +24,6 @@ public class BoatExitSystem : MonoBehaviour
     void Update()
     {
         if (hasExited) return;
-
-        // Solo chequear si el player está en la canoa
         if (!boatInteraction.playerOnBoat) return;
 
         float distance = Vector3.Distance(player.transform.position, transform.position);
@@ -47,18 +45,14 @@ public class BoatExitSystem : MonoBehaviour
         hasExited = true;
         pressQUI.SetActive(false);
 
-        // Mover al exit point
+        // Detener sonido de la canoa
+        boatInteraction.DetenerSonidoCanoa();
+
         player.transform.position = exitPoint.position;
         player.transform.rotation = exitPoint.rotation;
-
-        // Reactivar CharacterController
         controller.enabled = true;
-
-        // Restaurar movimiento
         playerController.MoveSpeed = 4f;
         playerController.SprintSpeed = 6f;
-
-        // Desactivar seguimiento
         boatInteraction.playerOnBoat = false;
         boatInteraction.enabled = false;
     }

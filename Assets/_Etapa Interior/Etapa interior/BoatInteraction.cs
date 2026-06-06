@@ -11,6 +11,7 @@ public class BoatInteraction : MonoBehaviour
     public FirstPersonController playerController;
     public CharacterController controller;
     public Animator boatAnimator;
+    public AudioSource boatAudioSource; // Arrastrá el AudioSource de la canoa acá
 
     [HideInInspector] public bool playerOnBoat = false;
     private bool playerNear = false;
@@ -28,32 +29,34 @@ public class BoatInteraction : MonoBehaviour
         }
     }
 
-    // LateUpdate para que siga la posición DESPUÉS de que la animación mueva la canoa
     void LateUpdate()
     {
         if (playerOnBoat)
         {
-            // Seguir la canoa sin parentear — player queda en raíz de jerarquía
             player.transform.position = playerPoint.position;
         }
     }
 
     void SubirAlBote()
     {
-        // Desactivar CharacterController y dejarlo desactivado
         controller.enabled = false;
-
-        // Posicionar el player en el punto de la canoa
         player.transform.position = playerPoint.position;
         player.transform.rotation = playerPoint.rotation;
-
-        // Bloquear movimiento, cámara libre
         playerController.MoveSpeed = 0f;
         playerController.SprintSpeed = 0f;
-
         playerOnBoat = true;
         pressEUI.SetActive(false);
         boatAnimator.SetBool("startBoat", true);
+
+        // Reproducir sonido del agua
+        if (boatAudioSource != null)
+            boatAudioSource.Play();
+    }
+
+    public void DetenerSonidoCanoa()
+    {
+        if (boatAudioSource != null)
+            boatAudioSource.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
