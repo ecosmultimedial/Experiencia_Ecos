@@ -11,10 +11,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Etapa Central/etapa central.unity
     guid: 94c2f32c5b59d834f84750c9a097a571
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Etapa Interior/Etapa_interior.unity
     guid: ae5fa18ac0911f84fb22ed6f5b74aeb4
   - enabled: 1
     path: "Assets/_Etapa Desconexi\xF3n/etapa desconexion.unity"
     guid: fa7bc53f530a0aa468c2b469fc902913
+  - enabled: 1
+    path: Assets/_Etapa Interior/Playground.unity
+    guid: e9017d5f96b9f09489b4b37e1d6eb914
+  - enabled: 1
+    path: Assets/_Etapa Pertenencia/Etapa Pertenencia.unity
+    guid: 846fae83b6ec5d14e86c0df00ff69ecd
+  - enabled: 1
+    path: Assets/_Etapa Ecos/ETAPA ECOS.unity
+    guid: 47f36eaeb6340ce4fb099852cc77c3c2
+  - enabled: 1
+    path: Assets/_Etapa Afectiva/ETAPA AFECTIVA/ETAPA AFECTIVA.unity
+    guid: 8ff41dd2472b21d48b9801d7d48da93d
   m_configObjects: {}
