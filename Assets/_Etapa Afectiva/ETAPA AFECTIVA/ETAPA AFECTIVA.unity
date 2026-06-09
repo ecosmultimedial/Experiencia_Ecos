@@ -26137,6 +26137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombreEscena: etapa central
   usarFadeNegro: 1
+  identificadorOrigen: 
 --- !u!1001 &693853559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33235,7 +33236,8 @@ Transform:
   m_LocalPosition: {x: 175.57742, y: 109.31942, z: 12.185245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1371874395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &937989068
@@ -38322,7 +38324,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 918958888}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 925211891}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -50562,5 +50564,4 @@ SceneRoots:
   - {fileID: 1057631112}
   - {fileID: 838152410}
   - {fileID: 274206639}
-  - {fileID: 1371874395}
   - {fileID: 925211891}
