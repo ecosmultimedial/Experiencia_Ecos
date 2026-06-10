@@ -828,6 +828,59 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8896059852015955960, guid: eba241d89c416a14290fc9d68b5ff07e, type: 3}
+--- !u!1 &27020063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 27020064}
+  - component: {fileID: 27020065}
+  m_Layer: 0
+  m_Name: collider abrol bosque (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &27020064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27020063}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.033189774, y: 0.04113253, z: 0.090022884, w: 0.9945363}
+  m_LocalPosition: {x: -12.316, y: -7.57, z: 7.516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -4.211, y: 4.361, z: 10.184}
+--- !u!65 &27020065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27020063}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7911905, y: 5.0060787, z: 0.57407933}
+  m_Center: {x: -0.23462754, y: 1.5564914, z: -0.10426035}
 --- !u!1001 &32064661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6385,6 +6438,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1096375850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &267193881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 267193882}
+  - component: {fileID: 267193883}
+  m_Layer: 0
+  m_Name: collider abrol bosque (14)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &267193882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267193881}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.033189774, y: 0.04113253, z: 0.090022884, w: 0.9945363}
+  m_LocalPosition: {x: -11.809, y: -7.66, z: 20.357}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -4.211, y: 4.361, z: 10.184}
+--- !u!65 &267193883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267193881}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7044024, y: 5.7750306, z: 0.6968253}
+  m_Center: {x: -0.17907108, y: 1.8378508, z: -0.13674013}
 --- !u!1001 &269543765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6873,6 +6979,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstepClip: {fileID: 8300000, guid: 08d51fee96f8cd74688c3a35ffbf6430, type: 3}
   stepInterval: 0.45
+--- !u!1 &288705144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288705145}
+  - component: {fileID: 288705146}
+  m_Layer: 0
+  m_Name: collider abrol bosque (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &288705145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288705144}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.056244038, y: 0.04250672, z: 0.069038205, w: 0.9951198}
+  m_LocalPosition: {x: 7.4, y: -7.864, z: 27.368}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: 6.089, y: 5.33, z: 8.221}
+--- !u!65 &288705146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288705144}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6559907, y: 4.535533, z: 0.79442656}
+  m_Center: {x: -0.25383633, y: 1.7677679, z: 0.0654458}
 --- !u!1 &288791814
 GameObject:
   m_ObjectHideFlags: 0
@@ -8989,15 +9148,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373344167}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.035968844, y: 0.06764566, z: -0.10458357, w: 0.9915607}
-  m_LocalPosition: {x: 9.672, y: -7.371, z: 37.349}
+  m_LocalRotation: {x: 0.016886644, y: 0.056868777, z: -0.03917986, w: 0.99746966}
+  m_LocalPosition: {x: 9.523, y: -7.757, z: 37.263}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1003468966}
-  m_LocalEulerAnglesHint: {x: -3.278, y: 8.158, z: -12.276}
---- !u!136 &373344169
-CapsuleCollider:
+  m_LocalEulerAnglesHint: {x: 2.186, y: 6.443, z: -4.376}
+--- !u!65 &373344169
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9014,11 +9173,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.32558748
-  m_Height: 3.2124977
-  m_Direction: 1
-  m_Center: {x: -0.24809483, y: 1.1062422, z: -0.07368207}
+  serializedVersion: 3
+  m_Size: {x: 0.7864744, y: 4.4969215, z: 0.66671693}
+  m_Center: {x: -0.16146079, y: 1.7484607, z: -0.08288131}
 --- !u!1 &373522357
 GameObject:
   m_ObjectHideFlags: 0
@@ -9855,15 +10012,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420145811}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09281264, y: -0.0082678655, z: 0.11770377, w: 0.9886674}
-  m_LocalPosition: {x: 1.704, y: -7.093, z: 47.575}
+  m_LocalRotation: {x: -0.03343368, y: -0.01357056, z: 0.0065428456, w: 0.99932736}
+  m_LocalPosition: {x: 1.753, y: -7.34, z: 47.514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1003468966}
-  m_LocalEulerAnglesHint: {x: 10.688, y: 0.321, z: 13.609}
---- !u!136 &420145813
-CapsuleCollider:
+  m_LocalEulerAnglesHint: {x: -3.821, y: -1.583, z: 0.803}
+--- !u!65 &420145813
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9880,11 +10037,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.30812803
-  m_Height: 2.6905725
-  m_Direction: 1
-  m_Center: {x: -0.19187237, y: 0.8452864, z: -0.0000000041723798}
+  serializedVersion: 3
+  m_Size: {x: 0.6127218, y: 4.502333, z: 0.58295697}
+  m_Center: {x: -0.21062377, y: 1.7511649, z: 0.06068257}
 --- !u!1001 &421961182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16036,6 +16191,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1096375850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &612435542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 612435543}
+  - component: {fileID: 612435544}
+  m_Layer: 0
+  m_Name: collider abrol bosque (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &612435543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612435542}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.075809486, y: 0.03712268, z: 0.0030599684, w: 0.99642634}
+  m_LocalPosition: {x: 14.348, y: -7.466, z: 6.72}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -8.703, y: 4.265, z: 0.027}
+--- !u!65 &612435544
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612435542}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.65852946, y: 5.7200494, z: 0.7777544}
+  m_Center: {x: -0.09735574, y: 2.3600209, z: -0.18090934}
 --- !u!1001 &617070307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17755,6 +17963,59 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683831216}
   m_Mesh: {fileID: 8896059852015955960, guid: eba241d89c416a14290fc9d68b5ff07e, type: 3}
+--- !u!1 &686056644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686056645}
+  - component: {fileID: 686056646}
+  m_Layer: 0
+  m_Name: collider abrol bosque (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686056645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686056644}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.007709503, y: 0.041769404, z: 0.08711186, w: 0.99529266}
+  m_LocalPosition: {x: 20.306, y: -7.159, z: 0.169}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -1.296, y: 4.693, z: 9.951}
+--- !u!65 &686056646
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686056644}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8412726, y: 4.8410373, z: 0.6665918}
+  m_Center: {x: -0.14832489, y: 1.2939934, z: -0.15521386}
 --- !u!1001 &686625280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18106,6 +18367,59 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &707606977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707606978}
+  - component: {fileID: 707606979}
+  m_Layer: 0
+  m_Name: collider abrol bosque (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &707606978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707606977}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.033189774, y: 0.04113253, z: 0.090022884, w: 0.9945363}
+  m_LocalPosition: {x: -5.437, y: -7.66, z: 14.771}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -4.211, y: 4.361, z: 10.184}
+--- !u!65 &707606979
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707606977}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.71891934, y: 5.74509, z: 0.5584785}
+  m_Center: {x: -0.1825273, y: 2.154579, z: -0.12337042}
 --- !u!1 &714047216
 GameObject:
   m_ObjectHideFlags: 0
@@ -19265,6 +19579,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 768788756}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &770021510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 770021511}
+  - component: {fileID: 770021512}
+  m_Layer: 0
+  m_Name: collider abrol bosque (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &770021511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770021510}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.008321189, y: 0.041651476, z: 0.10169713, w: 0.9939082}
+  m_LocalPosition: {x: 12.31, y: -7.432, z: 0.484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -1.433, y: 4.653, z: 11.626}
+--- !u!65 &770021512
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770021510}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8153957, y: 5.40724, z: 0.6112446}
+  m_Center: {x: -0.14930543, y: 1.3334225, z: -0.15754706}
 --- !u!1001 &771861862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20133,15 +20500,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815700438}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.1489603, y: 0.015655903, z: 0.09535086, w: 0.9841107}
-  m_LocalPosition: {x: -3.505, y: -7.15, z: 44.363}
+  m_LocalRotation: {x: -0.080438755, y: 0.0071801096, z: 0.07100248, w: 0.99420154}
+  m_LocalPosition: {x: -3.522, y: -7.463, z: 44.319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1003468966}
-  m_LocalEulerAnglesHint: {x: -17.228, y: 0.144, z: 11.046}
---- !u!136 &815700440
-CapsuleCollider:
+  m_LocalEulerAnglesHint: {x: -9.263, y: 0.166, z: 8.156}
+--- !u!65 &815700440
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20158,11 +20525,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.32558748
-  m_Height: 3.2124977
-  m_Direction: 1
-  m_Center: {x: -0.24809483, y: 1.1062422, z: -0.07368207}
+  serializedVersion: 3
+  m_Size: {x: 0.62932736, y: 3.4818285, z: 0.6166183}
+  m_Center: {x: -0.18533634, y: 1.240909, z: -0.004973204}
 --- !u!1001 &816884918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21141,6 +21506,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1096375850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &861696187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 861696188}
+  - component: {fileID: 861696189}
+  m_Layer: 0
+  m_Name: collider abrol bosque (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &861696188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861696187}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.10847721, y: 0.053912885, z: 0.08033762, w: 0.9893796}
+  m_LocalPosition: {x: 4.843, y: -7.414, z: 12.666}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: 11.887, y: 7.286, z: 10.044}
+--- !u!65 &861696189
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861696187}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6104803, y: 4.3524494, z: 0.6860486}
+  m_Center: {x: -0.11790504, y: 1.338018, z: -0.07056395}
 --- !u!1 &866723164
 GameObject:
   m_ObjectHideFlags: 0
@@ -22904,6 +23322,112 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1096375850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &915480577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 915480578}
+  - component: {fileID: 915480579}
+  m_Layer: 0
+  m_Name: collider abrol bosque (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &915480578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915480577}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.10518512, y: 0.037195772, z: 0.0019627512, w: 0.99375486}
+  m_LocalPosition: {x: 11.531, y: -7.338, z: 14.363}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -12.076, y: 4.311, z: -0.23}
+--- !u!65 &915480579
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915480577}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5743202, y: 5.0581236, z: 0.8193548}
+  m_Center: {x: -0.11478727, y: 1.8128076, z: -0.23085555}
+--- !u!1 &926007241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 926007242}
+  - component: {fileID: 926007243}
+  m_Layer: 0
+  m_Name: collider abrol bosque (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &926007242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926007241}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.07730309, y: 0.036218897, z: 0.00869459, w: 0.9963116}
+  m_LocalPosition: {x: 21.970043, y: -7.391, z: 10.617}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: 8.824, y: 4.266, z: 1.329}
+--- !u!65 &926007243
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926007241}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6034211, y: 5.14489, z: 0.7513954}
+  m_Center: {x: -0.17558655, y: 1.8800206, z: -0.067167334}
 --- !u!1001 &929178707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23657,6 +24181,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 955880551}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &962766526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 962766527}
+  - component: {fileID: 962766528}
+  m_Layer: 0
+  m_Name: collider abrol bosque (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &962766527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962766526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.059840515, y: 0.044377524, z: 0.0069028893, w: 0.99719715}
+  m_LocalPosition: {x: 15.563, y: -7.466, z: 28.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: 6.819, y: 5.162, z: 1.101}
+--- !u!65 &962766528
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962766526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7702441, y: 3.7475863, z: 0.6902156}
+  m_Center: {x: -0.24398164, y: 1.0028541, z: -0.054040655}
 --- !u!1001 &968674963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24737,6 +25314,21 @@ Transform:
   - {fileID: 420145812}
   - {fileID: 815700439}
   - {fileID: 373344168}
+  - {fileID: 962766527}
+  - {fileID: 288705145}
+  - {fileID: 1029218388}
+  - {fileID: 915480578}
+  - {fileID: 926007242}
+  - {fileID: 612435543}
+  - {fileID: 686056645}
+  - {fileID: 770021511}
+  - {fileID: 861696188}
+  - {fileID: 1329539786}
+  - {fileID: 1770117650}
+  - {fileID: 267193882}
+  - {fileID: 707606978}
+  - {fileID: 27020064}
+  - {fileID: 1517789115}
   - {fileID: 1446007058}
   - {fileID: 568854735}
   m_Father: {fileID: 474207246}
@@ -25363,6 +25955,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2114283753834967213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1029218387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1029218388}
+  - component: {fileID: 1029218389}
+  m_Layer: 0
+  m_Name: collider abrol bosque (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1029218388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029218387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.09447441, y: 0.03685625, z: 0.051290497, w: 0.99352175}
+  m_LocalPosition: {x: 9.013, y: -7.433, z: 21.006}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: 10.6, y: 4.84, z: 6.36}
+--- !u!65 &1029218389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029218387}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6898381, y: 5.2777486, z: 0.7452645}
+  m_Center: {x: -0.23193496, y: 2.1388507, z: -0.07111502}
 --- !u!1001 &1029777357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33419,6 +34064,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1096375850}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1329539785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329539786}
+  - component: {fileID: 1329539787}
+  m_Layer: 0
+  m_Name: collider abrol bosque (12)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1329539786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329539785}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.067462206, y: 0.043207232, z: 0.11332964, w: 0.99032235}
+  m_LocalPosition: {x: 0.328, y: -7.406, z: 8.388}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -8.245, y: 4.073, z: 12.763}
+--- !u!65 &1329539787
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329539785}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6355165, y: 3.8750894, z: 0.5112231}
+  m_Center: {x: -0.1092793, y: 1.4375417, z: -0.12259337}
 --- !u!1001 &1329550612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37350,6 +38048,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1515542083}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1517789114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517789115}
+  - component: {fileID: 1517789116}
+  m_Layer: 0
+  m_Name: collider abrol bosque (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517789115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517789114}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.040141795, y: 0.031741183, z: -0.113264754, w: 0.99224603}
+  m_LocalPosition: {x: -6.793, y: -7.615, z: -1.792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -4.156, y: 4.145, z: -13.175}
+--- !u!65 &1517789116
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517789114}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7937194, y: 5.0518823, z: 0.78988886}
+  m_Center: {x: -0.09250226, y: 2.2155201, z: -0.15292381}
 --- !u!1 &1522485052
 GameObject:
   m_ObjectHideFlags: 0
@@ -43245,6 +43996,59 @@ Transform:
   - {fileID: 450726019}
   m_Father: {fileID: 474207246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1770117649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1770117650}
+  - component: {fileID: 1770117651}
+  m_Layer: 0
+  m_Name: collider abrol bosque (13)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1770117650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770117649}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.033189774, y: 0.04113253, z: 0.090022884, w: 0.9945363}
+  m_LocalPosition: {x: -7.177, y: -7.655, z: 28.876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1003468966}
+  m_LocalEulerAnglesHint: {x: -4.211, y: 4.361, z: 10.184}
+--- !u!65 &1770117651
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770117649}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7048122, y: 5.763066, z: 0.74741584}
+  m_Center: {x: -0.22590582, y: 2.1210148, z: -0.20802428}
 --- !u!1001 &1771118628
 PrefabInstance:
   m_ObjectHideFlags: 0
