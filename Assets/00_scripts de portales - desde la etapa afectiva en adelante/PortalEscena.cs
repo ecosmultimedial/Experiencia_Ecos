@@ -6,22 +6,34 @@ using UnityEngine.SceneManagement;
 public class PortalEscena : MonoBehaviour
 {
     public string nombreEscena = "etapa central";
-    public bool usarFadeNegro = true;   // Desmarcar en el portal que va a la escena final
+    public bool usarFadeNegro = true;
 
     [Header("Identificación de origen")]
-    [Tooltip("Nombre de la escena donde está ESTE portal. La escena destino lo usa para saber de dónde viene el player.")]
+    [Tooltip("Nombre de la escena donde está ESTE portal.")]
     public string identificadorOrigen = "";
+
+    [Header("Marcar etapa como completada")]
+    [Tooltip("Si esta marcado, marca la etapa con el nombre de identificadorOrigen como completada antes del fade.")]
+    public bool marcarEtapaComoCompletada = false;
+
+    [Header("Zocalo")]
+    public ZocaloTypewriter zocalo;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Guardar de dónde viene el player antes de cambiar de escena
             if (!string.IsNullOrEmpty(identificadorOrigen))
             {
                 PlayerPrefs.SetString("OrigenEscena", identificadorOrigen);
+                if (marcarEtapaComoCompletada)
+                {
+                    PlayerPrefs.SetInt("Etapa" + identificadorOrigen + "Completada", 1);
+                }
                 PlayerPrefs.Save();
             }
+
+            if (zocalo != null) zocalo.Desactivar();
 
             if (usarFadeNegro && FadeManager.Instance != null)
                 FadeManager.Instance.CambiarEscena(nombreEscena);

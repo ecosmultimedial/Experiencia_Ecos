@@ -21,21 +21,37 @@ public class EtapaCentralManager : MonoBehaviour
     public PuenteExtensible puentePertenencia;
     public PuenteExtensible puenteEcos;
 
+    [Header("Skyboxes")]
+    [Tooltip("Indice 0 = ninguna etapa completada, indice 4 = todas completadas.")]
+    public Material[] skyboxes = new Material[5];
+
     private void Start()
     {
-        // 1. Posicionar al player segun de donde viene
         PosicionarPlayerSegunOrigen();
-
-        // 2. Desplegar el puente correspondiente
         DesplegarPuenteSegunOrigen();
+        ActualizarSkybox();
 
-        // 3. Logica de bienvenida (sin cambios)
         canvasBienvenida.SetActive(false);
         if (PlayerPrefs.GetInt("VozCentralReproducida", 0) == 0)
         {
             MostrarBienvenida();
             PlayerPrefs.SetInt("VozCentralReproducida", 1);
             PlayerPrefs.Save();
+        }
+    }
+
+    private void ActualizarSkybox()
+    {
+        int etapasCompletadas = 0;
+        if (PlayerPrefs.GetInt("EtapaInteriorCompletada", 0) == 1) etapasCompletadas++;
+        if (PlayerPrefs.GetInt("EtapaAfectivaCompletada", 0) == 1) etapasCompletadas++;
+        if (PlayerPrefs.GetInt("EtapaPertenenciaCompletada", 0) == 1) etapasCompletadas++;
+        if (PlayerPrefs.GetInt("EtapaEcosCompletada", 0) == 1) etapasCompletadas++;
+
+        if (skyboxes != null && etapasCompletadas < skyboxes.Length && skyboxes[etapasCompletadas] != null)
+        {
+            RenderSettings.skybox = skyboxes[etapasCompletadas];
+            DynamicGI.UpdateEnvironment();
         }
     }
 

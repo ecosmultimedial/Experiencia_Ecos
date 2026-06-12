@@ -19,18 +19,24 @@ public class PuenteExtensible : MonoBehaviour
     [Tooltip("Si esta marcado, el puente arranca extendido (para puentes ya activados).")]
     public bool empiezaExtendido = false;
 
+    [Header("Borde de seguridad")]
+    [Tooltip("Collider que bloquea el vacio cuando el puente esta retraido. Se desactiva al extenderse.")]
+    public GameObject bordeSeguridad;
+
     private bool yaExtendido = false;
 
     private void Awake()
     {
         transform.localPosition = empiezaExtendido ? posicionExtendida : posicionRetraida;
         yaExtendido = empiezaExtendido;
+        if (bordeSeguridad != null) bordeSeguridad.SetActive(!empiezaExtendido);
     }
 
     public void ExtenderPuente()
     {
         if (yaExtendido) return;
         yaExtendido = true;
+        if (bordeSeguridad != null) bordeSeguridad.SetActive(false);
         StartCoroutine(AnimarExtension());
     }
 
