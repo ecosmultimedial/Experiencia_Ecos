@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Etapa Afectiva/ETAPA AFECTIVA/ETAPA AFECTIVA.unity
     guid: 8ff41dd2472b21d48b9801d7d48da93d
+  - enabled: 1
+    path: Assets/_Etapa Final/ETAPA FINAL.unity
+    guid: 5f520d73f4a42644dabb5fb105e3d692
   m_configObjects: {}
