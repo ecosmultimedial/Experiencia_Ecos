@@ -6514,7 +6514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9501ea5e1221a4a9f7dc20bf04d6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 363b0a8bbe8540c41b2addd149d76cad, type: 3}
+  audioClip: {fileID: 8300000, guid: ac978ef29c168654fb67d99d4b8ccc1f, type: 3}
   loop: 0
   detenerAlSalir: 0
   reproducirSoloUnaVez: 1
@@ -26140,6 +26140,7 @@ MonoBehaviour:
   usarFadeNegro: 1
   identificadorOrigen: Afectiva
   marcarEtapaComoCompletada: 1
+  zocalo: {fileID: 0}
 --- !u!1001 &693853559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32820,7 +32821,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8c84caf2da4d1324886ac7ae3789b8a3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7c2decb065afbbc47932a8286f97014f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

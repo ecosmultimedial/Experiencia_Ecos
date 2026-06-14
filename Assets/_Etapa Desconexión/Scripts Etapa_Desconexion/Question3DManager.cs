@@ -32,8 +32,8 @@ public class Question3DManager : MonoBehaviour
 
     [Header("Player")]
     public MonoBehaviour playerController;
-    public Transform playerTransform;   // ← player
-    public Transform focusPoint;        // ← empty donde se posiciona
+    public Transform playerTransform;
+    public Transform focusPoint;
 
     private bool writing = false;
 
@@ -41,7 +41,6 @@ public class Question3DManager : MonoBehaviour
     {
         answers = new string[questions.Length];
 
-        // Panel activo pero invisible y no interactivo
         questionPanel.SetActive(true);
         questionCanvasGroup.alpha = 0f;
         questionCanvasGroup.interactable = false;
@@ -49,7 +48,6 @@ public class Question3DManager : MonoBehaviour
 
         finalAudio.Stop();
 
-        // Flash invisible al inicio
         if (flashImage != null)
         {
             Color c = flashImage.color;
@@ -61,23 +59,18 @@ public class Question3DManager : MonoBehaviour
         inputField.onSelect.AddListener(StartWriting);
     }
 
-    // 🚀 CUANDO HACÉS CLICK EN EL INPUT
     void StartWriting(string text)
     {
         writing = true;
 
-        // TELETRANSPORTA al punto
         playerTransform.position = focusPoint.position;
         playerTransform.rotation = focusPoint.rotation;
 
-        // BLOQUEA controles
         playerController.enabled = false;
 
-        // ACTIVA input correctamente
         inputField.ActivateInputField();
     }
 
-    // 🚀 ABRIR PANEL
     public void OpenQuestions()
     {
         ShowQuestion();
@@ -85,11 +78,9 @@ public class Question3DManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // Podés moverte hasta hacer click
         playerController.enabled = true;
         writing = false;
 
-        // Fade in del panel
         StartCoroutine(FadeCanvas(questionCanvasGroup, 0f, 1f, fadeDuration, true));
     }
 
@@ -102,7 +93,6 @@ public class Question3DManager : MonoBehaviour
 
         writing = false;
 
-        // IMPORTANTE: no auto focus
         EventSystem.current.SetSelectedGameObject(null);
     }
 
@@ -113,7 +103,6 @@ public class Question3DManager : MonoBehaviour
 
     void Update()
     {
-        // ENTER para avanzar (SIEMPRE bloqueado)
         if (questionCanvasGroup.alpha > 0.9f && Input.GetKeyDown(KeyCode.Return))
         {
             if (inputField.text.Trim().Length > 0 && writing)
@@ -135,8 +124,6 @@ public class Question3DManager : MonoBehaviour
         if (currentIndex < questions.Length)
         {
             ShowQuestion();
-
-            // 🔥 CLAVE: volver a enfocar automáticamente
             StartWriting("");
         }
         else
@@ -155,6 +142,13 @@ public class Question3DManager : MonoBehaviour
 
     void FinishQuestions()
     {
+        // Guardar respuestas en PlayerPrefs
+        for (int i = 0; i < answers.Length; i++)
+        {
+            PlayerPrefs.SetString("Respuesta_" + i, answers[i]);
+        }
+        PlayerPrefs.Save();
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -165,30 +159,27 @@ public class Question3DManager : MonoBehaviour
 
     IEnumerator FadeOutAndContinue()
     {
-        // Fade out del panel antes de continuar
         yield return StartCoroutine(FadeCanvas(questionCanvasGroup, 1f, 0f, fadeDuration, false));
-
         yield return StartCoroutine(FinalSequence());
     }
 
     IEnumerator FinalSequence()
     {
-        finalAudio.Play(); // 🎧 audio
+        finalAudio.Play();
 
         yield return new WaitForSeconds(1f);
 
-        infinityAnimator.SetTrigger("Activate"); // ✨ animación
+        infinityAnimator.SetTrigger("Activate");
 
         yield return new WaitForSeconds(4f);
 
-        yield return StartCoroutine(FlashEffect()); // 💥 flash
+        yield return StartCoroutine(FlashEffect());
 
         SceneManager.LoadScene("etapa central");
     }
 
     IEnumerator FlashEffect()
     {
-        // Fade in
         while (flashImage.color.a < 1f)
         {
             Color c = flashImage.color;
@@ -199,7 +190,6 @@ public class Question3DManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.6f);
 
-        // Fade out
         while (flashImage.color.a > 0f)
         {
             Color c = flashImage.color;
@@ -209,13 +199,11 @@ public class Question3DManager : MonoBehaviour
         }
     }
 
-    // 🔥 Corrutina reutilizable para fade de CanvasGroup
     IEnumerator FadeCanvas(CanvasGroup cg, float from, float to, float duration, bool enableAtEnd)
     {
         float elapsed = 0f;
         cg.alpha = from;
 
-        // Si vamos a mostrar, activamos interacción desde el principio
         if (enableAtEnd)
         {
             cg.interactable = true;
@@ -231,7 +219,6 @@ public class Question3DManager : MonoBehaviour
 
         cg.alpha = to;
 
-        // Si estamos ocultando, desactivamos interacción al final
         if (!enableAtEnd)
         {
             cg.interactable = false;
