@@ -8,13 +8,14 @@ public class CubeEventManager : MonoBehaviour
     public GameObject continueCanvas;
 
     [Header("Siluetas")]
-    public List<Renderer> siluetas; // Las siluetas que se van a desvanecer
+    public List<Renderer> siluetas;
 
     [Header("Portal")]
     public GameObject portal;
+    public AudioSource sonidoPortal; // Arrastrá acá el Audio Source con el sonido del portal
 
     [Header("Tiempos")]
-    public float delayAntesDeBoton = 2f; // Segundos después de la voz para mostrar el botón
+    public float delayAntesDeBoton = 2f;
     public float fadeDuration = 3f;
 
     private bool activated = false;
@@ -31,7 +32,6 @@ public class CubeEventManager : MonoBehaviour
 
     IEnumerator MostrarBotonContinuar()
     {
-        // Pequeña pausa después de que termina la voz
         yield return new WaitForSeconds(delayAntesDeBoton);
         continueCanvas.SetActive(true);
         canvasVisible = true;
@@ -77,6 +77,12 @@ public class CubeEventManager : MonoBehaviour
             r.gameObject.SetActive(false);
 
         if (portal != null)
+        {
             portal.SetActive(true);
+
+            // Reproducir sonido del portal al aparecer
+            if (sonidoPortal != null)
+                sonidoPortal.Play();
+        }
     }
 }
