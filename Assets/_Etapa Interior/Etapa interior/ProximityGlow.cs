@@ -1,59 +1,41 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ProximityGlow : MonoBehaviour
 {
-    public Renderer cubeRenderer;
+    [Header("Audio")]
+    public AudioSource vozInstrucciones; // La voz en off con las instrucciones
+    public float delayAntesDeVoz = 0.5f;   // Espera 1 segundo antes de reproducir
 
-    public Color baseColor = Color.white;
-    public Color glowColor = Color.white;
-
-    public float baseIntensity = 1f;
-    public float glowIntensity = 5f;
-
-    public AudioSource audioSource;
-
-    public bool specialCube = false;
-
+    [Header("Evento")]
     public CubeEventManager eventManager;
 
-    private Material materialInstance;
-
-    void Start()
-    {
-        materialInstance = cubeRenderer.material;
-        SetEmission(baseColor, baseIntensity);
-    }
+    private bool yaActivado = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !yaActivado)
         {
-            SetEmission(glowColor, glowIntensity);
-
-            if (audioSource != null)
-            {
-                audioSource.Play();
-            }
-
-            if (specialCube && eventManager != null)
-            {
-                eventManager.StartEvent();
-            }
+            yaActivado = true;
+            StartCoroutine(ReproducirVozYActivarEvento());
         }
     }
 
-    void OnTriggerExit(Collider other)
+    IEnumerator ReproducirVozYActivarEvento()
     {
-        if (other.CompareTag("Player"))
-        {
-            SetEmission(baseColor, baseIntensity);
-        }
-    }
+        // Esperar 1 segundo antes de la voz
+        yield return new WaitForSeconds(delayAntesDeVoz);
 
-    void SetEmission(Color color, float intensity)
-    {
-        materialInstance.SetColor("_EmissionColor", color * intensity);
+        // Reproducir la voz de instrucciones
+        if (vozInstrucciones != null)
+            vozInstrucciones.Play();
+
+        // Esperar a que termine la voz antes de activar el evento
+        float duracionVoz = vozInstrucciones != null ? vozInstrucciones.clip.length : 0f;
+        yield return new WaitForSeconds(duracionVoz);
+
+        // Activar el evento que mostrará el botón continuar
+        if (eventManager != null)
+            eventManager.StartEvent();
     }
 }

@@ -11,6 +11,7 @@ public class BoatExitSystem : MonoBehaviour
     public FirstPersonController playerController;
     public CharacterController controller;
     public BoatInteraction boatInteraction;
+    public AudioSource vozNarradora; // Arrastrá acá el empty con el AudioSource
 
     public float detectionRadius = 8f;
     private bool playerCanExit = false;
@@ -55,5 +56,9 @@ public class BoatExitSystem : MonoBehaviour
         playerController.SprintSpeed = 6f;
         boatInteraction.playerOnBoat = false;
         boatInteraction.enabled = false;
+
+        // Reproducir voz narradora una sola vez
+        if (vozNarradora != null)
+            vozNarradora.Play();
     }
 }
