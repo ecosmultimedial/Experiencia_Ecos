@@ -58,6 +58,13 @@ public class SillaInteraction : MonoBehaviour
         // para que no procese ningún input de cámara
         playerController.enabled = false;
 
+        // Resetear la rotación vertical del CameraRoot
+        Transform cameraRoot = player.transform.Find("PlayerCameraRoot");
+        if (cameraRoot != null)
+        {
+            cameraRoot.localRotation = Quaternion.identity;
+        }
+
         // Forzar rotación de la cámara
         if (virtualCamera != null)
         {
