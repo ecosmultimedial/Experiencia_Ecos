@@ -70,7 +70,7 @@ public class TuboMusical : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.X))
                 CambiarSonido();
 
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.E))
                 TogglePausa();
         }
     }

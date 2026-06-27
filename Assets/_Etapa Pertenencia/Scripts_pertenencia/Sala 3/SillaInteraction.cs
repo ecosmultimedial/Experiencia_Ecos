@@ -31,9 +31,9 @@ public class SillaInteraction : MonoBehaviour
 
     void Update()
     {
-        if (playerNear && !sentado && Input.GetKeyDown(KeyCode.F))
+        if (playerNear && !sentado && Input.GetKeyDown(KeyCode.X))
             Sentarse();
-        else if (sentado && Input.GetKeyDown(KeyCode.F))
+        else if (sentado && Input.GetKeyDown(KeyCode.E))
             Levantarse();
     }
 

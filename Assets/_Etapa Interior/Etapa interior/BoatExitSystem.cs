@@ -35,7 +35,7 @@ public class BoatExitSystem : MonoBehaviour
             pressQUI.SetActive(true);
         }
 
-        if (playerCanExit && Input.GetKeyDown(KeyCode.Q))
+        if (playerCanExit && Input.GetKeyDown(KeyCode.X))
         {
             BajarDelBote();
         }
