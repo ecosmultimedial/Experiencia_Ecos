@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class EsferasManager : MonoBehaviour
 {
     public static EsferasManager Instance;
@@ -14,11 +15,18 @@ public class EsferasManager : MonoBehaviour
     [Header("Fade In del Portal")]
     public float duracionFadeIn = 1f;
 
+    [Header("Sonido del Portal")]
+    public AudioClip sonidoPortal;
+    [Range(0f, 1f)]
+    public float volumenSonidoPortal = 1f;
+
     private int esferasVistas = 0;
+    private AudioSource audioSource;
 
     void Awake()
     {
         Instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -41,6 +49,14 @@ public class EsferasManager : MonoBehaviour
 
         portal.SetActive(true);
         Debug.Log("¡Portal activado!");
+
+        // Reproducimos el sonido al mismo tiempo que arranca el fade
+        if (sonidoPortal != null)
+        {
+            audioSource.clip = sonidoPortal;
+            audioSource.volume = volumenSonidoPortal;
+            audioSource.Play();
+        }
 
         yield return StartCoroutine(FadeInPortal());
     }
