@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EtapaCentralManager : MonoBehaviour
 {
-    [Header("Primera visita")]
-    public GameObject canvasBienvenida;
-    public AudioSource vozEnOff;
+    [Header("Triggers de narracion (uno por etapa siguiente)")]
+    [Tooltip("Trigger cerca del portal de Interior. Tambien cumple el rol de bienvenida inicial.")]
+    public NarracionTrigger triggerInterior;
+    public NarracionTrigger triggerAfectiva;
+    public NarracionTrigger triggerPertenencia;
+    public NarracionTrigger triggerEcos;
 
     [Header("Spawn del player segun origen")]
     public Transform player;
@@ -30,14 +33,52 @@ public class EtapaCentralManager : MonoBehaviour
         PosicionarPlayerSegunOrigen();
         DesplegarPuenteSegunOrigen();
         ActualizarSkybox();
+        ActivarTriggerSegunProgreso();
+    }
 
-        canvasBienvenida.SetActive(false);
-        if (PlayerPrefs.GetInt("VozCentralReproducida", 0) == 0)
+    private void ActivarTriggerSegunProgreso()
+    {
+        DesactivarTodosLosTriggers();
+
+        bool interiorListo = PlayerPrefs.GetInt("EtapaInteriorCompletada", 0) == 1;
+        bool afectivaListo = PlayerPrefs.GetInt("EtapaAfectivaCompletada", 0) == 1;
+        bool pertenenciaListo = PlayerPrefs.GetInt("EtapaPertenenciaCompletada", 0) == 1;
+        bool ecosListo = PlayerPrefs.GetInt("EtapaEcosCompletada", 0) == 1;
+
+        if (ecosListo)
         {
-            MostrarBienvenida();
-            PlayerPrefs.SetInt("VozCentralReproducida", 1);
-            PlayerPrefs.Save();
+            // Todas las etapas completadas, no queda ninguna etapa siguiente que anunciar.
+            return;
         }
+        else if (pertenenciaListo)
+        {
+            ActivarTrigger(triggerEcos);
+        }
+        else if (afectivaListo)
+        {
+            ActivarTrigger(triggerPertenencia);
+        }
+        else if (interiorListo)
+        {
+            ActivarTrigger(triggerAfectiva);
+        }
+        else
+        {
+            ActivarTrigger(triggerInterior);
+        }
+    }
+
+    private void DesactivarTodosLosTriggers()
+    {
+        if (triggerInterior != null) triggerInterior.Desactivar();
+        if (triggerAfectiva != null) triggerAfectiva.Desactivar();
+        if (triggerPertenencia != null) triggerPertenencia.Desactivar();
+        if (triggerEcos != null) triggerEcos.Desactivar();
+    }
+
+    private void ActivarTrigger(NarracionTrigger trigger)
+    {
+        if (trigger != null) trigger.Activar();
     }
 
     private void ActualizarSkybox()
@@ -116,17 +157,5 @@ public class EtapaCentralManager : MonoBehaviour
     {
         if (puente == null) return;
         puente.transform.localPosition = puente.posicionExtendida;
-    }
-
-    private void MostrarBienvenida()
-    {
-        canvasBienvenida.SetActive(true);
-        vozEnOff.Play();
-        Invoke(nameof(OcultarBienvenida), vozEnOff.clip.length);
-    }
-
-    private void OcultarBienvenida()
-    {
-        canvasBienvenida.SetActive(false);
     }
 }

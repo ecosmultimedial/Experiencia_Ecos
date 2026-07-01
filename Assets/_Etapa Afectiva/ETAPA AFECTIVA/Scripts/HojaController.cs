@@ -10,32 +10,27 @@ public class HojaController : MonoBehaviour
     public MesaInteraction mesaInteraction;
     public AudioSource audioVozEnOff;
     public Button botonContinuar;
-    public Button botonCerrar;
     public WordInputField[] campos;
 
     private Image imagenBotonContinuar;
 
-    void Awake()
-    {
-        imagenBotonContinuar = botonContinuar.GetComponent<Image>();
-    }
-
     void Start()
     {
-        botonCerrar.onClick.AddListener(Cerrar);
         botonContinuar.onClick.AddListener(Continuar);
+        imagenBotonContinuar = botonContinuar.GetComponent<Image>();
     }
 
     void OnEnable()
     {
-        if (imagenBotonContinuar == null)
-            imagenBotonContinuar = botonContinuar.GetComponent<Image>();
-
         botonContinuar.interactable = false;
 
-        Color c = imagenBotonContinuar.color;
-        c.a = 0.4f;
-        imagenBotonContinuar.color = c;
+        // Solo bajar opacidad, no cambiar color
+        if (imagenBotonContinuar != null)
+        {
+            Color c = imagenBotonContinuar.color;
+            c.a = 0.4f; // semitransparente = desactivado
+            imagenBotonContinuar.color = c;
+        }
 
         if (audioVozEnOff != null)
             audioVozEnOff.Play();
@@ -45,9 +40,7 @@ public class HojaController : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                Cerrar();
-
+            // Enter solo funciona si el botón está activo
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
                 if (botonContinuar.interactable)
                     Continuar();
@@ -68,17 +61,13 @@ public class HojaController : MonoBehaviour
 
         botonContinuar.interactable = todosCompletos;
 
+        // Solo cambiar opacidad
         if (imagenBotonContinuar != null)
         {
             Color c = imagenBotonContinuar.color;
             c.a = todosCompletos ? 1f : 0.4f;
             imagenBotonContinuar.color = c;
         }
-    }
-
-    void Cerrar()
-    {
-        mesaInteraction.CerrarHoja();
     }
 
     void Continuar()
