@@ -18,9 +18,27 @@ public class BloqueoPortal : MonoBehaviour
         miCollider = GetComponent<Collider>();
         if (canvasCartel != null) canvasCartel.SetActive(false);
 
-        bool etapaCompletada = PlayerPrefs.GetInt("Etapa" + nombreEtapa + "Completada", 0) == 1;
-        miCollider.enabled = etapaCompletada;
-        if (paredBloqueo != null) paredBloqueo.SetActive(etapaCompletada);
+        bool esElTurnoDeEstaEtapa = EsElTurnoDeEstaEtapa();
+
+        miCollider.enabled = !esElTurnoDeEstaEtapa;
+        if (paredBloqueo != null) paredBloqueo.SetActive(!esElTurnoDeEstaEtapa);
+    }
+
+    private bool EsElTurnoDeEstaEtapa()
+    {
+        bool interiorListo = PlayerPrefs.GetInt("EtapaInteriorCompletada", 0) == 1;
+        bool afectivaListo = PlayerPrefs.GetInt("EtapaAfectivaCompletada", 0) == 1;
+        bool pertenenciaListo = PlayerPrefs.GetInt("EtapaPertenenciaCompletada", 0) == 1;
+        bool ecosListo = PlayerPrefs.GetInt("EtapaEcosCompletada", 0) == 1;
+
+        string etapaActual;
+        if (ecosListo) etapaActual = "";               // ya completó todo, ninguna es "la actual"
+        else if (pertenenciaListo) etapaActual = "Ecos";
+        else if (afectivaListo) etapaActual = "Pertenencia";
+        else if (interiorListo) etapaActual = "Afectiva";
+        else etapaActual = "Interior";
+
+        return nombreEtapa == etapaActual;
     }
 
     private void OnTriggerEnter(Collider other)
