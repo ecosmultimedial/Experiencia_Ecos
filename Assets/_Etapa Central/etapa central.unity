@@ -7281,11 +7281,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1899289326202911348, guid: fd6985d4b6df07e4db53c298da01a9ef,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad342f05c43138248a27c038825567ef, type: 2}
+    - target: {fileID: -844040799632365277, guid: fd6985d4b6df07e4db53c298da01a9ef,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad342f05c43138248a27c038825567ef, type: 2}
     - target: {fileID: 919132149155446097, guid: fd6985d4b6df07e4db53c298da01a9ef,
         type: 3}
       propertyPath: m_Name
       value: portal ecos
       objectReference: {fileID: 0}
+    - target: {fileID: 4209898118237841093, guid: fd6985d4b6df07e4db53c298da01a9ef,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90e73432c8bf75445acc373d1a81310c, type: 2}
     - target: {fileID: 8391486874892126950, guid: fd6985d4b6df07e4db53c298da01a9ef,
         type: 3}
       propertyPath: m_LocalPosition.y
