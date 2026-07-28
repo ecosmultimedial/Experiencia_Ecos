@@ -3,8 +3,8 @@ using UnityEngine;
 public class TriggerCanvaUnaVez : MonoBehaviour
 {
     public GameObject canvas;
-    public float duracion = 6f; // Segundos que se muestra el canvas
-
+    public AudioSource audioNarracion; // Referencia al audio
+    public float duracion = 9f; // Ahora 7 segundos para coincidir con el audio
     private bool yaActivado = false;
 
     void Start()
@@ -18,7 +18,19 @@ public class TriggerCanvaUnaVez : MonoBehaviour
         {
             yaActivado = true;
             canvas.SetActive(true);
+
+            // Reproducir el audio con delay de 0.5 segundos
+            Invoke("ReproducirAudio", 0.5f);
+
             Invoke("OcultarCanvas", duracion);
+        }
+    }
+
+    void ReproducirAudio()
+    {
+        if (audioNarracion != null)
+        {
+            audioNarracion.Play();
         }
     }
 
