@@ -23,9 +23,9 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.38
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.48337483, g: 0.54147977, b: 0.6886792, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 9f36ba63720939b42bcdd308c3afa262, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -5205,11 +5205,11 @@ MonoBehaviour:
   puentePertenencia: {fileID: 480199819}
   puenteEcos: {fileID: 68308472}
   skyboxes:
-  - {fileID: 2100000, guid: 9f36ba63720939b42bcdd308c3afa262, type: 2}
-  - {fileID: 2100000, guid: aeab33f69c199e54794f516d31450ec4, type: 2}
-  - {fileID: 2100000, guid: 2c3a0f34dabbd334e9a24a88ef8fed02, type: 2}
-  - {fileID: 2100000, guid: 1cf32c17fea93ef4fb120e8e0cdfbef1, type: 2}
-  - {fileID: 2100000, guid: 4bbccf70dd877774a9e2158f062b91ff, type: 2}
+  - {fileID: 2100000, guid: 9af23ba5fa5364ff598888460e0e2759, type: 2}
+  - {fileID: 2100000, guid: b4f152e0498484391a9f0d5a1facf03b, type: 2}
+  - {fileID: 2100000, guid: 2d796ced94d61438fbab81b194038162, type: 2}
+  - {fileID: 2100000, guid: 8b7dd0809c7c6498789fa32a61eaa6cb, type: 2}
+  - {fileID: 2100000, guid: 7416536dbe0334cfd888dd1beb75a9fb, type: 2}
   playerMeshVisual: {fileID: 1834409471}
   fpsController: {fileID: 1834409470}
   vCamIntro: {fileID: 1216867854}
