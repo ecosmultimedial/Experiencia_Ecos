@@ -8,6 +8,7 @@ public class HojaController : MonoBehaviour
 {
     [Header("Referencias")]
     public MesaInteraction mesaInteraction;
+    public SistemaLucesGuia sistemaLuces; // <- nuevo
     public AudioSource audioVozEnOff;
     public Button botonContinuar;
     public WordInputField[] campos;
@@ -24,11 +25,10 @@ public class HojaController : MonoBehaviour
     {
         botonContinuar.interactable = false;
 
-        // Solo bajar opacidad, no cambiar color
         if (imagenBotonContinuar != null)
         {
             Color c = imagenBotonContinuar.color;
-            c.a = 0.4f; // semitransparente = desactivado
+            c.a = 0.4f;
             imagenBotonContinuar.color = c;
         }
 
@@ -40,7 +40,6 @@ public class HojaController : MonoBehaviour
     {
         if (gameObject.activeSelf)
         {
-            // Enter solo funciona si el botón está activo
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
                 if (botonContinuar.interactable)
                     Continuar();
@@ -61,7 +60,6 @@ public class HojaController : MonoBehaviour
 
         botonContinuar.interactable = todosCompletos;
 
-        // Solo cambiar opacidad
         if (imagenBotonContinuar != null)
         {
             Color c = imagenBotonContinuar.color;
@@ -72,7 +70,12 @@ public class HojaController : MonoBehaviour
 
     void Continuar()
     {
-        Debug.Log("¡Completado! Continuar a la siguiente parte.");
+        mesaInteraction.yaCompletado = true;
+        botonContinuar.gameObject.SetActive(false);
+
+        if (sistemaLuces != null)
+            sistemaLuces.IniciarGrupo2(); // <- llama al grupo 2
+
         mesaInteraction.CerrarHoja();
     }
 }

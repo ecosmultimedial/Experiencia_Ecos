@@ -14,6 +14,7 @@ public class CartelTrigger : MonoBehaviour
     [SerializeField] private string tagJugador = "Player";
 
     private Coroutine cuentaRegresivaCoroutine;
+    private bool cuentaIniciada = false;
 
     private void Reset()
     {
@@ -24,32 +25,18 @@ public class CartelTrigger : MonoBehaviour
     {
         if (!other.CompareTag(tagJugador)) return;
         if (cartelActividad == null || cartelActividad.EstaCompletada) return;
+        if (cuentaIniciada) return; // <- si ya arrancó, no hacer nada
 
-        if (cuentaRegresivaCoroutine != null)
-            StopCoroutine(cuentaRegresivaCoroutine);
-
+        cuentaIniciada = true;
         cuentaRegresivaCoroutine = StartCoroutine(CuentaRegresiva());
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag(tagJugador)) return;
-
-        if (cuentaRegresivaCoroutine != null)
-        {
-            StopCoroutine(cuentaRegresivaCoroutine);
-            cuentaRegresivaCoroutine = null;
-        }
-
-        if (zocaloCarga != null)
-            zocaloCarga.OcultarInmediato();
-
-        if (cartelActividad != null)
-            cartelActividad.OcultarBoton();
-    }
+    // OnTriggerExit ya no cancela nada
 
     private IEnumerator CuentaRegresiva()
     {
+        cartelActividad.BloquearMovimiento(); // <- bloquear al entrar
+
         if (zocaloCarga != null)
             zocaloCarga.Mostrar();
 
