@@ -14,10 +14,11 @@ public class MesaInteraction : MonoBehaviour
 
     private bool jugadorCerca = false;
     private bool hojaAbierta = false;
+    [HideInInspector] public bool yaCompletado = false; // <- nuevo
 
     void Update()
     {
-        if (jugadorCerca && !hojaAbierta && Input.GetKeyDown(KeyCode.E))
+        if (jugadorCerca && !hojaAbierta && !yaCompletado && Input.GetKeyDown(KeyCode.E))
             AbrirHoja();
     }
 
@@ -26,7 +27,8 @@ public class MesaInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorCerca = true;
-            promptHUD.SetActive(true);
+            if (!yaCompletado) // <- no mostrar prompt si ya terminó
+                promptHUD.SetActive(true);
         }
     }
 
@@ -44,10 +46,8 @@ public class MesaInteraction : MonoBehaviour
         hojaAbierta = true;
         hojaPanel.SetActive(true);
         promptHUD.SetActive(false);
-
         playerController.enabled = false;
 
-        // Deshabilitar input de cámara Cinemachine
         var inputProvider = virtualCamera.GetComponent<MonoBehaviour>();
         if (inputProvider != null)
             inputProvider.enabled = false;
@@ -60,10 +60,8 @@ public class MesaInteraction : MonoBehaviour
     {
         hojaAbierta = false;
         hojaPanel.SetActive(false);
-
         playerController.enabled = true;
 
-        // Rehabilitar input de cámara Cinemachine
         var inputProvider = virtualCamera.GetComponent<MonoBehaviour>();
         if (inputProvider != null)
             inputProvider.enabled = true;
@@ -71,7 +69,7 @@ public class MesaInteraction : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (jugadorCerca)
+        if (jugadorCerca && !yaCompletado) // <- solo si no completó
             promptHUD.SetActive(true);
     }
 }

@@ -7,12 +7,14 @@ public class CartelTrigger : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private CartelActividad cartelActividad;
+    [SerializeField] private ZocaloCarga zocaloCarga;
 
     [Header("Configuración")]
     [SerializeField] private float tiempoEspera = 10f;
     [SerializeField] private string tagJugador = "Player";
 
     private Coroutine cuentaRegresivaCoroutine;
+    private bool cuentaIniciada = false;
 
     private void Reset()
     {
@@ -23,30 +25,26 @@ public class CartelTrigger : MonoBehaviour
     {
         if (!other.CompareTag(tagJugador)) return;
         if (cartelActividad == null || cartelActividad.EstaCompletada) return;
+        if (cuentaIniciada) return; // <- si ya arrancó, no hacer nada
 
-        if (cuentaRegresivaCoroutine != null)
-            StopCoroutine(cuentaRegresivaCoroutine);
-
+        cuentaIniciada = true;
         cuentaRegresivaCoroutine = StartCoroutine(CuentaRegresiva());
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag(tagJugador)) return;
-
-        if (cuentaRegresivaCoroutine != null)
-        {
-            StopCoroutine(cuentaRegresivaCoroutine);
-            cuentaRegresivaCoroutine = null;
-        }
-
-        if (cartelActividad != null)
-            cartelActividad.OcultarBoton();
-    }
+    // OnTriggerExit ya no cancela nada
 
     private IEnumerator CuentaRegresiva()
     {
+        cartelActividad.BloquearMovimiento(); // <- bloquear al entrar
+
+        if (zocaloCarga != null)
+            zocaloCarga.Mostrar();
+
         yield return new WaitForSeconds(tiempoEspera);
+
+        if (zocaloCarga != null)
+            yield return StartCoroutine(zocaloCarga.OcultarYEsperar());
+
         cartelActividad.MostrarBoton();
         cuentaRegresivaCoroutine = null;
     }

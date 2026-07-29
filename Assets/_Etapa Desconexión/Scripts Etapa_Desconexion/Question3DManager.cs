@@ -24,6 +24,7 @@ public class Question3DManager : MonoBehaviour
 
     [Header("Final")]
     public AudioSource finalAudio;
+    public AudioSource musicaDeFondo;    // ← NUEVA LÍNEA
     public Animator infinityAnimator;
 
     [Header("Flash")]
@@ -173,30 +174,59 @@ public class Question3DManager : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
 
-        yield return StartCoroutine(FlashEffect());
+        // Hace flash blanco rápido
+        yield return StartCoroutine(QuickFlash());
 
-        SceneManager.LoadScene("etapa central");
+        // Fade suave de 4 segundos (audio + pantalla)
+        yield return StartCoroutine(SmoothTransitionToNextScene());
     }
 
-    IEnumerator FlashEffect()
+    IEnumerator QuickFlash()
     {
-        while (flashImage.color.a < 1f)
+        float elapsed = 0f;
+        float flashDuration = 1f; // Flash rápido
+
+        while (elapsed < flashDuration)
         {
+            elapsed += Time.deltaTime;
+            float progress = elapsed / flashDuration;
+
             Color c = flashImage.color;
-            c.a += Time.deltaTime * flashSpeed;
+            c.a = Mathf.Lerp(0f, 1f, progress);
             flashImage.color = c;
+
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.6f);
+        // Asegurar que está totalmente blanco
+        Color finalColor = flashImage.color;
+        finalColor.a = 1f;
+        flashImage.color = finalColor;
+    }
 
-        while (flashImage.color.a > 0f)
+    IEnumerator SmoothTransitionToNextScene()
+    {
+        float elapsed = 0f;
+        float transitionDuration = 4f;
+
+        float initialVolume = musicaDeFondo.volume;
+
+        while (elapsed < transitionDuration)
         {
-            Color c = flashImage.color;
-            c.a -= Time.deltaTime * flashSpeed;
-            flashImage.color = c;
+            elapsed += Time.deltaTime;
+            float progress = elapsed / transitionDuration;
+
+            // Audio baja linealmente
+            musicaDeFondo.volume = Mathf.Lerp(initialVolume, 0f, progress);
+
             yield return null;
         }
+
+        // Finalizar
+        musicaDeFondo.volume = 0f;
+
+        // Cargar escena
+        SceneManager.LoadScene("etapa central");
     }
 
     IEnumerator FadeCanvas(CanvasGroup cg, float from, float to, float duration, bool enableAtEnd)

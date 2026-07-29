@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class CubeEventManager : MonoBehaviour
 {
+    [Header("UI")]
     public GameObject continueCanvas;
 
-    public List<Renderer> cubes;
+    [Header("Siluetas")]
+    public List<Renderer> siluetas;
 
+    [Header("Portal")]
     public GameObject portal;
+    public AudioSource sonidoPortal; // Arrastrá acá el Audio Source con el sonido del portal
 
+    [Header("Tiempos")]
+    public float delayAntesDeBoton = 2f;
     public float fadeDuration = 3f;
 
     private bool activated = false;
@@ -20,14 +26,13 @@ public class CubeEventManager : MonoBehaviour
         if (!activated)
         {
             activated = true;
-            StartCoroutine(ShowCanvasAfterDelay());
+            StartCoroutine(MostrarBotonContinuar());
         }
     }
 
-    IEnumerator ShowCanvasAfterDelay()
+    IEnumerator MostrarBotonContinuar()
     {
-        yield return new WaitForSeconds(15f);
-
+        yield return new WaitForSeconds(delayAntesDeBoton);
         continueCanvas.SetActive(true);
         canvasVisible = true;
     }
@@ -43,48 +48,41 @@ public class CubeEventManager : MonoBehaviour
     public void ContinueExperience()
     {
         canvasVisible = false;
-
         continueCanvas.SetActive(false);
-
-        StartCoroutine(FadeCubes());
+        StartCoroutine(DesvaneceYMuestraPortal());
     }
 
-    IEnumerator FadeCubes()
+    IEnumerator DesvaneceYMuestraPortal()
     {
         float time = 0;
-
         List<Material> materials = new List<Material>();
 
-        foreach (Renderer r in cubes)
-        {
+        foreach (Renderer r in siluetas)
             materials.Add(r.material);
-        }
 
         while (time < fadeDuration)
         {
             time += Time.deltaTime;
-
             float alpha = Mathf.Lerp(1, 0, time / fadeDuration);
-
             foreach (Material m in materials)
             {
                 Color color = m.color;
                 color.a = alpha;
                 m.color = color;
             }
-
             yield return null;
         }
 
-        foreach (Renderer r in cubes)
-        {
+        foreach (Renderer r in siluetas)
             r.gameObject.SetActive(false);
-        }
 
-        // Activar portal
         if (portal != null)
         {
             portal.SetActive(true);
+
+            // Reproducir sonido del portal al aparecer
+            if (sonidoPortal != null)
+                sonidoPortal.Play();
         }
     }
 }
