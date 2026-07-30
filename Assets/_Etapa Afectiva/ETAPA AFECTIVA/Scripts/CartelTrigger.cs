@@ -25,17 +25,15 @@ public class CartelTrigger : MonoBehaviour
     {
         if (!other.CompareTag(tagJugador)) return;
         if (cartelActividad == null || cartelActividad.EstaCompletada) return;
-        if (cuentaIniciada) return; // <- si ya arrancó, no hacer nada
+        if (cuentaIniciada) return;
 
         cuentaIniciada = true;
         cuentaRegresivaCoroutine = StartCoroutine(CuentaRegresiva());
     }
 
-    // OnTriggerExit ya no cancela nada
-
     private IEnumerator CuentaRegresiva()
     {
-        cartelActividad.BloquearMovimiento(); // <- bloquear al entrar
+        cartelActividad.BloquearMovimiento();
 
         if (zocaloCarga != null)
             zocaloCarga.Mostrar();

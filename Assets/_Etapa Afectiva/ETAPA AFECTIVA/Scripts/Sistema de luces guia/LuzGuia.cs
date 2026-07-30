@@ -22,17 +22,20 @@ public class LuzGuia : MonoBehaviour
 
     void Awake()
     {
-        // Busca el Renderer en este objeto o en cualquiera de sus hijos
         rend = GetComponentInChildren<Renderer>();
-        // .material crea una instancia única para esta luz
-        mat = rend.material;
-
-        // Guardamos el color emisivo original (el que tiene en el editor)
+        mat = rend.material; // instancia única para esta luz
         colorEmisivoOriginal = mat.GetColor("_EmissionColor");
+    }
 
-        // Arrancamos apagadas
-        mat.SetColor("_EmissionColor", Color.black);
-        mat.EnableKeyword("_EMISSION");
+    void OnEnable()
+    {
+        // Apagar al activarse, más confiable en build que Awake
+        if (mat != null)
+        {
+            mat.SetColor("_EmissionColor", Color.black);
+            mat.DisableKeyword("_EMISSION"); // fuerza apagado completo
+        }
+        estado = Estado.Inactiva;
     }
 
     void Start()
@@ -44,7 +47,6 @@ public class LuzGuia : MonoBehaviour
     void Update()
     {
         if (estado != Estado.Activa || jugador == null) return;
-
         float dist = Vector3.Distance(transform.position, jugador.position);
         if (dist <= radioDeteccion)
         {
@@ -54,6 +56,7 @@ public class LuzGuia : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
+        mat.EnableKeyword("_EMISSION"); // reactivar antes del fade
         float t = 0f;
         while (t < duracionFade)
         {
@@ -68,8 +71,7 @@ public class LuzGuia : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        estado = Estado.Completada; // se marca ya, así no se redispara
-
+        estado = Estado.Completada;
         float t = 0f;
         while (t < duracionFade)
         {
@@ -79,6 +81,7 @@ public class LuzGuia : MonoBehaviour
             yield return null;
         }
         mat.SetColor("_EmissionColor", Color.black);
+        mat.DisableKeyword("_EMISSION");
         gameObject.SetActive(false);
     }
 }

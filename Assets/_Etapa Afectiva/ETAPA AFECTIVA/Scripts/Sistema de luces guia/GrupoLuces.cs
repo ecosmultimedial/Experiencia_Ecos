@@ -14,12 +14,12 @@ public class GrupoLuces : MonoBehaviour
 
     private IEnumerator SecuenciaFadeIn()
     {
-        // Recorre las luces hijas en el orden en que están en la jerarquía
         foreach (Transform hija in transform)
         {
             LuzGuia luz = hija.GetComponent<LuzGuia>();
             if (luz != null)
             {
+                hija.gameObject.SetActive(true); // <- activar antes del FadeIn
                 StartCoroutine(luz.FadeIn());
                 yield return new WaitForSeconds(delayEntreLuces);
             }
