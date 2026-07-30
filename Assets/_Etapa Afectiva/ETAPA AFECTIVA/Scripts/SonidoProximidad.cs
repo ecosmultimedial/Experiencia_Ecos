@@ -20,11 +20,17 @@ public class SonidoProximidad : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
-
         audioSource.clip = audioClip;
         audioSource.loop = loop;
         audioSource.volume = volumen;
         audioSource.playOnAwake = false;
+    }
+
+    void Update()
+    {
+        // Cuando el audio termina, reseteamos reproduciendo
+        if (reproduciendo && !audioSource.isPlaying)
+            reproduciendo = false;
     }
 
     void OnTriggerEnter(Collider other)

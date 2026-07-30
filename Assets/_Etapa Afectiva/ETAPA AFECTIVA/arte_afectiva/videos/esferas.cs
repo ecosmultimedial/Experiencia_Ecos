@@ -12,6 +12,8 @@ public class esferas : MonoBehaviour
 
     [Header("Color al ser vista")]
     public Color colorVisto = new Color(0.41f, 0.91f, 0.92f);
+    [Range(0f, 1f)]
+    public float alphaVisto = 0.5f;
 
     private bool fueVista = false;
     private Color colorInicial;
@@ -22,6 +24,10 @@ public class esferas : MonoBehaviour
     {
         materialInstancia = esferaRenderer.material;
         colorInicial = materialInstancia.GetColor("_BaseColor");
+
+        materialInstancia.SetFloat("_Surface", 1f);
+        materialInstancia.SetOverrideTag("RenderType", "Transparent");
+        materialInstancia.renderQueue = 3000;
 
         if (spriteVideo != null)
         {
@@ -42,9 +48,6 @@ public class esferas : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-
-        if (fadeActual != null) StopCoroutine(fadeActual);
-        fadeActual = StartCoroutine(FadeSprite(1f, 0f));
 
         if (!fueVista)
         {
@@ -74,16 +77,18 @@ public class esferas : MonoBehaviour
 
     IEnumerator CambiarColor()
     {
+        Color colorFinal = new Color(colorVisto.r, colorVisto.g, colorVisto.b, alphaVisto);
         float tiempo = 0f;
+
         while (tiempo < duracionFade)
         {
             tiempo += Time.deltaTime;
             float t = tiempo / duracionFade;
-            materialInstancia.SetColor("_BaseColor", Color.Lerp(colorInicial, colorVisto, t));
-            materialInstancia.SetColor("_EmissionColor", Color.Lerp(colorInicial, colorVisto, t));
+            Color actual = Color.Lerp(colorInicial, colorFinal, t);
+            materialInstancia.SetColor("_BaseColor", actual);
             yield return null;
         }
-        materialInstancia.SetColor("_BaseColor", colorVisto);
-        materialInstancia.SetColor("_EmissionColor", colorVisto);
+
+        materialInstancia.SetColor("_BaseColor", colorFinal);
     }
 }
