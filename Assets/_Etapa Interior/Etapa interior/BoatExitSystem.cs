@@ -13,7 +13,7 @@ public class BoatExitSystem : MonoBehaviour
     public BoatInteraction boatInteraction;
     public AudioSource vozNarradora; // Arrastrá acá el empty con el AudioSource
 
-    public float detectionRadius = 8f;
+    public float detectionRadius = 3f;
     private bool playerCanExit = false;
     private bool hasExited = false;
 

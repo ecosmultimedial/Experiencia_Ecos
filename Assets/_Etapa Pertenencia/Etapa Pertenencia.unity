@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 164855577efce7d418c8630014ffe089, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f1b1576da7906347a8a45dc7d4f0e52, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1588,6 +1588,8 @@ MonoBehaviour:
   identificadorOrigen: Pertenencia
   marcarEtapaComoCompletada: 1
   zocalo: {fileID: 0}
+  musicaGeneral: {fileID: 0}
+  duracionFadeMusica: 2
 --- !u!64 &197923839
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3673,7 +3675,7 @@ Transform:
   m_GameObject: {fileID: 339368954}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13772544, y: 0.69356453, z: -0.69356453, w: 0.13772544}
-  m_LocalPosition: {x: 40.15, y: 1.684, z: -219.632}
+  m_LocalPosition: {x: 40.15, y: 1.646, z: -219.632}
   m_LocalScale: {x: 2.4408, y: 2.4408, z: 2.4408}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4374,7 +4376,7 @@ Transform:
   m_GameObject: {fileID: 436952691}
   serializedVersion: 2
   m_LocalRotation: {x: 0.07579097, y: 0.70303327, z: -0.70303327, w: 0.07579097}
-  m_LocalPosition: {x: 41.424, y: 1.684, z: -219.151}
+  m_LocalPosition: {x: 41.424, y: 1.646, z: -219.151}
   m_LocalScale: {x: 2.4408, y: 2.4408, z: 2.4408}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15629,6 +15631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5666261585234168772, guid: 71cbe176cac70704ba5801f1d6d0ba4f,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666261585234168772, guid: 71cbe176cac70704ba5801f1d6d0ba4f,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: 23.60047
       objectReference: {fileID: 0}
@@ -16069,7 +16076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f0639d30dfefe1e4791f992795794ec5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d041425a3aac9d44cb6b5fe03f0ddd9b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

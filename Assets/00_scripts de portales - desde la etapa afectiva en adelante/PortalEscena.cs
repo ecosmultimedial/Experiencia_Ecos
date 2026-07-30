@@ -19,6 +19,11 @@ public class PortalEscena : MonoBehaviour
     [Header("Zocalo")]
     public ZocaloTypewriter zocalo;
 
+    [Header("Musica ambiente de la Central")]
+    [Tooltip("AudioSource de la musica general (objeto 'Musica' en la escena Central).")]
+    public AudioSource musicaGeneral;
+    public float duracionFadeMusica = 2f;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -32,13 +37,32 @@ public class PortalEscena : MonoBehaviour
                 }
                 PlayerPrefs.Save();
             }
-
             if (zocalo != null) zocalo.Desactivar();
 
-            if (usarFadeNegro && FadeManager.Instance != null)
-                FadeManager.Instance.CambiarEscena(nombreEscena);
-            else
-                SceneManager.LoadScene(nombreEscena);
+            StartCoroutine(FadeMusicaYCambiarEscena());
         }
+    }
+
+    private IEnumerator FadeMusicaYCambiarEscena()
+    {
+        if (musicaGeneral != null)
+        {
+            float volumenInicial = musicaGeneral.volume;
+            float t = 0f;
+
+            while (t < duracionFadeMusica)
+            {
+                t += Time.deltaTime;
+                musicaGeneral.volume = Mathf.Lerp(volumenInicial, 0f, t / duracionFadeMusica);
+                yield return null;
+            }
+
+            musicaGeneral.volume = 0f;
+        }
+
+        if (usarFadeNegro && FadeManager.Instance != null)
+            FadeManager.Instance.CambiarEscena(nombreEscena);
+        else
+            SceneManager.LoadScene(nombreEscena);
     }
 }

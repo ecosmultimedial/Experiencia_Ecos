@@ -19,16 +19,19 @@ public class NarracionTrigger : MonoBehaviour
     public float duracionFadeIn = 0.5f;
     public float duracionFadeOut = 0.5f;
 
+    [Header("Permanencia luego de terminar de escribir")]
+    public float tiempoVisibleAlTerminar = 4f;
+
+    [Header("Bloqueo fisico durante el audio")]
+    [Tooltip("GameObject con collider solido (no trigger) que bloquea el paso al portal mientras dura el audio.")]
+    public GameObject paredBloqueoAudio;
+
     private Collider miCollider;
-    private bool yaReproducida;
     private Coroutine fadeEnCurso;
 
     private void Awake()
     {
-        // Se resuelve en Awake (no en Start) para garantizar que el collider
-        // ya este listo antes de que EtapaCentralManager decida activarlo/desactivarlo en su propio Start.
         miCollider = GetComponent<Collider>();
-        yaReproducida = PlayerPrefs.GetInt(ClavePlayerPref(), 0) == 1;
 
         if (zocalo != null)
         {
@@ -38,44 +41,59 @@ public class NarracionTrigger : MonoBehaviour
             zocalo.blocksRaycasts = false;
         }
 
-        if (miCollider != null) miCollider.enabled = false;
-    }
+        if (paredBloqueoAudio != null) paredBloqueoAudio.SetActive(false);
 
-    private string ClavePlayerPref()
-    {
-        return "Narracion" + idNarracion + "Reproducida";
+        if (miCollider != null) miCollider.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        if (yaReproducida) return;
-
         Reproducir();
     }
 
     private void Reproducir()
     {
-        yaReproducida = true;
-        PlayerPrefs.SetInt(ClavePlayerPref(), 1);
-        PlayerPrefs.Save();
+        // Si se vuelve a entrar al trigger, cancelamos cualquier cuenta pendiente de la vez anterior
+        CancelInvoke(nameof(OcultarZocalo));
+        CancelInvoke(nameof(DesbloquearPaso));
+
+        if (paredBloqueoAudio != null) paredBloqueoAudio.SetActive(true);
+
+        if (vozNarracion != null)
+        {
+            vozNarracion.Stop();
+            vozNarracion.Play();
+
+            float duracionAudio = vozNarracion.clip != null ? vozNarracion.clip.length : 3f;
+            Invoke(nameof(DesbloquearPaso), duracionAudio);
+        }
+        else
+        {
+            DesbloquearPaso();
+        }
 
         if (zocalo != null)
         {
             zocalo.gameObject.SetActive(true);
             if (zocaloTexto != null) zocaloTexto.LimpiarTexto();
+
             IniciarFade(1f, duracionFadeIn, alTerminar: () =>
             {
-                if (zocaloTexto != null) zocaloTexto.Activar();
+                if (zocaloTexto != null)
+                {
+                    zocaloTexto.Activar(() =>
+                    {
+                        Invoke(nameof(OcultarZocalo), tiempoVisibleAlTerminar);
+                    });
+                }
             });
         }
+    }
 
-        if (vozNarracion != null)
-        {
-            vozNarracion.Play();
-            float duracion = vozNarracion.clip != null ? vozNarracion.clip.length : 3f;
-            Invoke(nameof(OcultarZocalo), duracion);
-        }
+    private void DesbloquearPaso()
+    {
+        if (paredBloqueoAudio != null) paredBloqueoAudio.SetActive(false);
     }
 
     private void OcultarZocalo()
@@ -96,7 +114,6 @@ public class NarracionTrigger : MonoBehaviour
         float alphaInicial = zocalo.alpha;
         float tiempo = 0f;
 
-        // Mientras el zocalo esta apareciendo, que se pueda interactuar si tuviera botones.
         zocalo.interactable = alphaDestino > 0f;
         zocalo.blocksRaycasts = alphaDestino > 0f;
 
@@ -126,7 +143,6 @@ public class NarracionTrigger : MonoBehaviour
 
     public void Activar()
     {
-        if (yaReproducida) return; // ya se reprodujo en una sesion anterior, no hace falta activarlo
         if (miCollider != null) miCollider.enabled = true;
     }
 

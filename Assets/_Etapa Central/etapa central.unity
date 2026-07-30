@@ -1837,7 +1837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &215145396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2086,7 +2086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 366f2081aa3bda14782879d734f838cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bae3458a1fef7648b6b344a330914f5, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2907,6 +2907,8 @@ MonoBehaviour:
   vozNarracion: {fileID: 1467503291}
   duracionFadeIn: 0.5
   duracionFadeOut: 0.5
+  tiempoVisibleAlTerminar: 4
+  paredBloqueoAudio: {fileID: 1554926139}
 --- !u!65 &430554621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2937,8 +2939,8 @@ Transform:
   m_GameObject: {fileID: 430554619}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.07, y: 10.53, z: 8}
-  m_LocalScale: {x: 34.159084, y: 3.9257, z: 3.9257}
+  m_LocalPosition: {x: -18.07, y: 10.53, z: -57.6}
+  m_LocalScale: {x: 24.338346, y: 3.9257, z: 128.76295}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3996,6 +3998,8 @@ MonoBehaviour:
   identificadorOrigen: Ecos
   marcarEtapaComoCompletada: 0
   zocalo: {fileID: 0}
+  musicaGeneral: {fileID: 1236088713}
+  duracionFadeMusica: 4
 --- !u!65 &696311736
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4713,6 +4717,59 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4493254812516302467, guid: ada48f6eeb4249b4a879fb560925bcda, type: 3}
+--- !u!1 &874109932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874109934}
+  - component: {fileID: 874109933}
+  m_Layer: 0
+  m_Name: BloqueoAudioPertenencia
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &874109933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874109932}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &874109934
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874109932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.16, y: 11.61, z: 131.1}
+  m_LocalScale: {x: 23.397388, y: 10.882, z: 4.0410304}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &897793597
 GameObject:
   m_ObjectHideFlags: 0
@@ -4763,6 +4820,8 @@ MonoBehaviour:
   identificadorOrigen: Pertenencia
   marcarEtapaComoCompletada: 0
   zocalo: {fileID: 0}
+  musicaGeneral: {fileID: 1236088713}
+  duracionFadeMusica: 4
 --- !u!65 &897793600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4938,6 +4997,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 28.407188, y: 0.5572818, z: 25.9048}
   m_Center: {x: -7.6586213, y: -0.22135915, z: 1.1515969}
+--- !u!1 &992172353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992172355}
+  - component: {fileID: 992172354}
+  m_Layer: 0
+  m_Name: BloqueoAudioEcos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &992172354
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992172353}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &992172355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992172353}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -138.70737, y: 10.883313, z: 14.947052}
+  m_LocalScale: {x: 23.39739, y: 10.882, z: 4.041032}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &997679443
 GameObject:
   m_ObjectHideFlags: 0
@@ -7726,6 +7838,8 @@ MonoBehaviour:
   identificadorOrigen: Afectiva
   marcarEtapaComoCompletada: 0
   zocalo: {fileID: 0}
+  musicaGeneral: {fileID: 1236088713}
+  duracionFadeMusica: 4
 --- !u!65 &1514319047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8211,6 +8325,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 28.407188, y: 0.5572818, z: 25.9048}
   m_Center: {x: -7.6586213, y: -0.22135915, z: 1.1515969}
+--- !u!1 &1554926139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1554926141}
+  - component: {fileID: 1554926140}
+  m_Layer: 0
+  m_Name: BloqueoAudioInterior
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &1554926140
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554926139}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1554926141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554926139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.16, y: 11.61, z: -106.88}
+  m_LocalScale: {x: 23.397388, y: 10.882, z: 4.0410304}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1556599521
 GameObject:
   m_ObjectHideFlags: 0
@@ -8261,6 +8428,8 @@ MonoBehaviour:
   identificadorOrigen: Interior
   marcarEtapaComoCompletada: 0
   zocalo: {fileID: 1601055811}
+  musicaGeneral: {fileID: 1236088713}
+  duracionFadeMusica: 4
 --- !u!65 &1556599524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8282,6 +8451,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3935629, y: 0.8390037, z: 1.0751016}
   m_Center: {x: 0.010674952, y: -0.08049601, z: 0.03755181}
+--- !u!1 &1559312869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1559312871}
+  - component: {fileID: 1559312870}
+  m_Layer: 0
+  m_Name: loqueoAudioAfectiva
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!65 &1559312870
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559312869}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1559312871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559312869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 100.3, y: 11.61, z: 16.5}
+  m_LocalScale: {x: 23.397388, y: 10.882, z: 4.0410304}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1566249246
 GameObject:
   m_ObjectHideFlags: 0
@@ -9312,6 +9534,8 @@ MonoBehaviour:
   vozNarracion: {fileID: 1566249247}
   duracionFadeIn: 0.5
   duracionFadeOut: 0.5
+  tiempoVisibleAlTerminar: 3
+  paredBloqueoAudio: {fileID: 1559312869}
 --- !u!65 &1612132767
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9342,8 +9566,8 @@ Transform:
   m_GameObject: {fileID: 1612132765}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -12.8, y: 10.53, z: 13}
-  m_LocalScale: {x: 34.159084, y: 3.9257, z: 3.9257}
+  m_LocalPosition: {x: 52.9, y: 10.53, z: 13}
+  m_LocalScale: {x: 26.90028, y: 3.9257, z: 131.1694}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -9733,6 +9957,8 @@ MonoBehaviour:
   vozNarracion: {fileID: 2032290998}
   duracionFadeIn: 0.5
   duracionFadeOut: 0.5
+  tiempoVisibleAlTerminar: 3
+  paredBloqueoAudio: {fileID: 992172353}
 --- !u!65 &1679858036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9763,8 +9989,8 @@ Transform:
   m_GameObject: {fileID: 1679858034}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -21.8, y: 10.53, z: 13}
-  m_LocalScale: {x: 34.159084, y: 3.9257, z: 3.9257}
+  m_LocalPosition: {x: -89.3, y: 10.53, z: 13}
+  m_LocalScale: {x: 27.327269, y: 3.9257, z: 132.38914}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -9971,6 +10197,8 @@ MonoBehaviour:
   vozNarracion: {fileID: 68768730}
   duracionFadeIn: 0.5
   duracionFadeOut: 0.5
+  tiempoVisibleAlTerminar: 3
+  paredBloqueoAudio: {fileID: 874109932}
 --- !u!65 &1752348304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10001,8 +10229,8 @@ Transform:
   m_GameObject: {fileID: 1752348302}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.6, y: 10.53, z: 18.4}
-  m_LocalScale: {x: 34.159084, y: 3.9257, z: 3.9257}
+  m_LocalPosition: {x: -17.6, y: 10.53, z: 82}
+  m_LocalScale: {x: 27.327269, y: 3.9257, z: 124.35868}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -10213,22 +10441,22 @@ PrefabInstance:
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.210218
+      value: 62.039284
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.8972473
+      value: 32.0296
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.94879
+      value: 55.672466
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.6055764
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -10238,7 +10466,7 @@ PrefabInstance:
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: -0.7957872
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -10248,7 +10476,7 @@ PrefabInstance:
     - target: {fileID: 5126527961139664767, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: field of view
-      value: 40
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664767, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -12055,9 +12283,13 @@ SceneRoots:
   - {fileID: 1435334265}
   - {fileID: 997679444}
   - {fileID: 430554622}
+  - {fileID: 1554926141}
   - {fileID: 1612132768}
+  - {fileID: 1559312871}
   - {fileID: 1752348305}
+  - {fileID: 874109934}
   - {fileID: 1679858037}
+  - {fileID: 992172355}
   - {fileID: 215145399}
   - {fileID: 1216867855}
   - {fileID: 824216560}
