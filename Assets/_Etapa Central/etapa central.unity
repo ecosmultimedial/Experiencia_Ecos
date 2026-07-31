@@ -5612,6 +5612,7 @@ MonoBehaviour:
   puenteAfectiva: {fileID: 1598385730}
   puentePertenencia: {fileID: 480199819}
   puenteEcos: {fileID: 68308472}
+  delayAntesDeMostrarMalla: 0.5
   skyboxes:
   - {fileID: 2100000, guid: 9f36ba63720939b42bcdd308c3afa262, type: 2}
   - {fileID: 2100000, guid: 9f36ba63720939b42bcdd308c3afa262, type: 2}
@@ -5626,9 +5627,9 @@ MonoBehaviour:
   audioBienvenida: {fileID: 824216559}
   panelNegroFade: {fileID: 1799102480}
   fadeDuration: 1.5
-  delayPuenteInicial: 13
+  delayPuenteInicial: 14
   panelBlancoFade: {fileID: 1664481916}
-  fadeBlancoDuration: 1
+  fadeBlancoDuration: 1.5
 --- !u!1 &1066252583 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2034793890470328614, guid: fd6985d4b6df07e4db53c298da01a9ef,
@@ -7705,6 +7706,11 @@ PrefabInstance:
       value: portal ecos
       objectReference: {fileID: 0}
     - target: {fileID: 4209898118237841093, guid: fd6985d4b6df07e4db53c298da01a9ef,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 90e73432c8bf75445acc373d1a81310c, type: 2}
+    - target: {fileID: 6317578925029434746, guid: fd6985d4b6df07e4db53c298da01a9ef,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -26,6 +26,9 @@ public class EtapaCentralManager : MonoBehaviour
     public PuenteExtensible puentePertenencia;
     public PuenteExtensible puenteEcos;
 
+    [Tooltip("Tiempo extra en pantalla negra antes de mostrar la malla del player, para darle tiempo a la camara de asentarse.")]
+    public float delayAntesDeMostrarMalla = 1f;
+
     [Header("Skyboxes")]
     [Tooltip("Indice 0 = ninguna etapa completada, indice 4 = todas completadas.")]
     public Material[] skyboxes = new Material[5];
@@ -83,6 +86,8 @@ public class EtapaCentralManager : MonoBehaviour
 
         vCamJugador.Priority = 30;
         vCamIntro.Priority = 0;
+
+        yield return new WaitForSeconds(delayAntesDeMostrarMalla);
 
         if (playerMeshVisual != null) playerMeshVisual.SetActive(true);
         if (fpsController != null) fpsController.enabled = true;

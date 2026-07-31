@@ -13,7 +13,7 @@ public class IntroVideo : MonoBehaviour
 
     public float duracionFadeOut = 2f;
 
-    private float tiempoParaMostrarBoton = 24.5f;
+    private float tiempoParaMostrarBoton = 36f;
     private float videoDuration;
     private bool botonMostrado = false;
 
