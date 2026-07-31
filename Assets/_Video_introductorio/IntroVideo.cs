@@ -7,42 +7,49 @@ public class IntroVideo : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public Button botonSaltarVideo;
+    public CanvasGroup fadePanel;
+    public CanvasGroup botonCanvasGroup;
     public string escenaSiguiente = "etapa desconexion";
 
-    private float tiempoParaMostrarBoton = 27f; // En segundos
+    public float duracionFadeOut = 2f;
+
+    private float tiempoParaMostrarBoton = 24.5f;
     private float videoDuration;
     private bool botonMostrado = false;
 
     void Start()
     {
-        // Ocultar cursor durante el video
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        // Obtener duración del video
         videoDuration = (float)videoPlayer.clip.length;
 
-        // Asegurarse que el botón esté oculto al inicio
         if (botonSaltarVideo != null)
         {
             botonSaltarVideo.gameObject.SetActive(false);
-        }
-
-        // Solo agregar el listener del botón
-        if (botonSaltarVideo != null)
-        {
             botonSaltarVideo.onClick.AddListener(SaltarVideo);
         }
+
+        if (fadePanel != null)
+        {
+            fadePanel.alpha = 0f;
+        }
+
+        if (botonCanvasGroup != null)
+        {
+            botonCanvasGroup.alpha = 1f;
+        }
+
+        // Listener para cuando el video termina
+        videoPlayer.loopPointReached += TerminoVideo;
     }
 
     void Update()
     {
-        // Si el video está reproduciéndose, monitorear el tiempo
         if (videoPlayer.isPlaying)
         {
             float tiempoActual = (float)videoPlayer.time;
 
-            // Mostrar botón cuando llega a los 27 segundos
             if (tiempoActual >= tiempoParaMostrarBoton && !botonMostrado)
             {
                 MostrarBoton();
@@ -56,14 +63,44 @@ public class IntroVideo : MonoBehaviour
         if (botonSaltarVideo != null)
         {
             botonSaltarVideo.gameObject.SetActive(true);
-            Cursor.lockState = CursorLockMode.Confined; // Permitir ver cursor
+            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
     }
 
     void SaltarVideo()
     {
-        // Cuando hace clic en el botón
+        StartCoroutine(FadeOutYCargarEscena());
+    }
+
+    void TerminoVideo(VideoPlayer vp)
+    {
+        // Cuando el video termina naturalmente
+        SceneManager.LoadScene(escenaSiguiente);
+    }
+
+    System.Collections.IEnumerator FadeOutYCargarEscena()
+    {
+        float tiempoTranscurrido = 0f;
+
+        while (tiempoTranscurrido < duracionFadeOut)
+        {
+            tiempoTranscurrido += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 1f, tiempoTranscurrido / duracionFadeOut);
+
+            if (fadePanel != null)
+                fadePanel.alpha = alpha;
+
+            if (botonCanvasGroup != null)
+                botonCanvasGroup.alpha = Mathf.Lerp(1f, 0f, tiempoTranscurrido / duracionFadeOut);
+
+            yield return null;
+        }
+
+        fadePanel.alpha = 1f;
+        if (botonCanvasGroup != null)
+            botonCanvasGroup.alpha = 0f;
+
         videoPlayer.Stop();
         SceneManager.LoadScene(escenaSiguiente);
     }

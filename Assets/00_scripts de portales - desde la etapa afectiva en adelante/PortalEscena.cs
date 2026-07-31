@@ -24,6 +24,10 @@ public class PortalEscena : MonoBehaviour
     public AudioSource musicaGeneral;
     public float duracionFadeMusica = 2f;
 
+    [Header("Sonido de proximidad de este portal")]
+    [Tooltip("Componente ProximidadPortal ubicado en este mismo portal, si tiene sonido de acercamiento.")]
+    public ProximidadPortal proximidadPortal;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -45,6 +49,11 @@ public class PortalEscena : MonoBehaviour
 
     private IEnumerator FadeMusicaYCambiarEscena()
     {
+        if (proximidadPortal != null)
+        {
+            proximidadPortal.ForzarFadeOut(duracionFadeMusica);
+        }
+
         if (musicaGeneral != null)
         {
             float volumenInicial = musicaGeneral.volume;

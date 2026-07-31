@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PortalFadeIn : MonoBehaviour
 {
     [Header("Configuración")]
+    public Image panelNegro;
     public float duracionFade = 2.5f;
 
     void OnEnable()
@@ -13,22 +15,26 @@ public class PortalFadeIn : MonoBehaviour
 
     IEnumerator HacerFadeIn()
     {
-        // Empezar en escala 0
-        transform.localScale = Vector3.zero;
+        // Empezar completamente negro
+        SetAlpha(1f);
 
         float tiempo = 0f;
         while (tiempo < duracionFade)
         {
             tiempo += Time.deltaTime;
-            float t = Mathf.Clamp01(tiempo / duracionFade);
-
-            // Curva suave — empieza lento y termina lento
-            float tSuave = Mathf.SmoothStep(0f, 1f, t);
-            transform.localScale = Vector3.one * tSuave;
-
+            float t = Mathf.SmoothStep(1f, 0f, tiempo / duracionFade);
+            SetAlpha(t);
             yield return null;
         }
 
-        transform.localScale = Vector3.one;
+        SetAlpha(0f);
+        panelNegro.gameObject.SetActive(false);
+    }
+
+    void SetAlpha(float alpha)
+    {
+        Color c = panelNegro.color;
+        c.a = alpha;
+        panelNegro.color = c;
     }
 }

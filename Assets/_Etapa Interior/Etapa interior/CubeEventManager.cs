@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CubeEventManager : MonoBehaviour
 {
@@ -12,7 +13,13 @@ public class CubeEventManager : MonoBehaviour
 
     [Header("Portal")]
     public GameObject portal;
-    public AudioSource sonidoPortal; // Arrastrá acá el Audio Source con el sonido del portal
+    public AudioSource sonidoPortal;
+    public float delayAntesDeSonido = 1f;
+
+
+    [Header("Fade In Portal")]
+    public Image panelNegro;
+    public float duracionFadePortal = 2.5f;
 
     [Header("Tiempos")]
     public float delayAntesDeBoton = 2f;
@@ -40,9 +47,7 @@ public class CubeEventManager : MonoBehaviour
     void Update()
     {
         if (canvasVisible && Input.GetKeyDown(KeyCode.Return))
-        {
             ContinueExperience();
-        }
     }
 
     public void ContinueExperience()
@@ -54,9 +59,9 @@ public class CubeEventManager : MonoBehaviour
 
     IEnumerator DesvaneceYMuestraPortal()
     {
+        // Desvanecer siluetas
         float time = 0;
         List<Material> materials = new List<Material>();
-
         foreach (Renderer r in siluetas)
             materials.Add(r.material);
 
@@ -76,13 +81,56 @@ public class CubeEventManager : MonoBehaviour
         foreach (Renderer r in siluetas)
             r.gameObject.SetActive(false);
 
-        if (portal != null)
+        // FADE IN a negro (pantalla se oscurece gradualmente)
+        if (panelNegro != null)
         {
+            float t = 0f;
+            while (t < duracionFadePortal)
+            {
+                t += Time.deltaTime;
+                float alpha = Mathf.SmoothStep(0f, 1f, t / duracionFadePortal);
+                Color c = panelNegro.color;
+                c.a = alpha;
+                panelNegro.color = c;
+                yield return null;
+            }
+            Color final = panelNegro.color;
+            final.a = 1f;
+            panelNegro.color = final;
+        }
+
+        // Esperar dos frames y activar portal mientras la pantalla está negra
+        yield return null;
+        yield return null;
+
+        if (portal != null)
             portal.SetActive(true);
 
-            // Reproducir sonido del portal al aparecer
-            if (sonidoPortal != null)
-                sonidoPortal.Play();
+        yield return null;
+
+        // Reproducir sonido con delay
+        if (sonidoPortal != null)
+        {
+            yield return new WaitForSeconds(delayAntesDeSonido);
+            sonidoPortal.Play();
+        }
+
+        // FADE OUT desde negro (pantalla se aclara revelando el portal)
+        if (panelNegro != null)
+        {
+            float t = 0f;
+            while (t < duracionFadePortal)
+            {
+                t += Time.deltaTime;
+                float alpha = Mathf.SmoothStep(1f, 0f, t / duracionFadePortal);
+                Color c = panelNegro.color;
+                c.a = alpha;
+                panelNegro.color = c;
+                yield return null;
+            }
+            Color final = panelNegro.color;
+            final.a = 0f;
+            panelNegro.color = final;
         }
     }
 }
