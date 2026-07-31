@@ -6,13 +6,12 @@ public class DockVoiceTrigger : MonoBehaviour
 {
     public AudioSource voice;
 
-    private bool played = false;
-
     void OnTriggerEnter(Collider other)
     {
-        if (!played && other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            played = true;
+            if (voice.isPlaying)
+                voice.Stop();
             voice.Play();
         }
     }

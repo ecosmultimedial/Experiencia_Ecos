@@ -1590,6 +1590,7 @@ MonoBehaviour:
   zocalo: {fileID: 0}
   musicaGeneral: {fileID: 0}
   duracionFadeMusica: 2
+  proximidadPortal: {fileID: 0}
 --- !u!64 &197923839
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6296,7 +6297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 550931493}
   audioNarracion: {fileID: 991188000}
-  duracion: 9
+  duracion: 8
 --- !u!65 &701711345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6316,8 +6317,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.2002563, y: 1.7943788, z: 3.333084}
-  m_Center: {x: 0.03427887, y: -0.39718938, z: -0.05179596}
+  m_Size: {x: 3.2002563, y: 1.7943788, z: 2.3034515}
+  m_Center: {x: 0.03427887, y: -0.39718938, z: 0.46302032}
 --- !u!4 &701711346
 Transform:
   m_ObjectHideFlags: 0

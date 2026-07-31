@@ -4,38 +4,83 @@ using UnityEngine;
 public class ProximityGlow : MonoBehaviour
 {
     [Header("Audio")]
-    public AudioSource vozInstrucciones; // La voz en off con las instrucciones
-    public float delayAntesDeVoz = 0.5f;   // Espera 1 segundo antes de reproducir
+    public AudioSource vozInstrucciones;
+    public float delayAntesDeVoz = 0.5f;
+    public float duracionFadeOut = 1f;
 
     [Header("Evento")]
     public CubeEventManager eventManager;
 
-    private bool yaActivado = false;
+    private bool eventoActivado = false;
+    private Coroutine corrutinaActual;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !yaActivado)
+        if (other.CompareTag("Player") && !eventoActivado) // Agregar !eventoActivado
         {
-            yaActivado = true;
-            StartCoroutine(ReproducirVozYActivarEvento());
+            if (corrutinaActual != null)
+                StopCoroutine(corrutinaActual);
+
+            corrutinaActual = StartCoroutine(ReproducirVoz());
         }
     }
 
-    IEnumerator ReproducirVozYActivarEvento()
+    // Al salir NO se corta — el audio sigue sonando
+    // Solo se cancela la corrutina de espera para no activar el evento dos veces
+    void OnTriggerExit(Collider other)
     {
-        // Esperar 1 segundo antes de la voz
-        yield return new WaitForSeconds(delayAntesDeVoz);
+        if (other.CompareTag("Player") && !eventoActivado) // Agregar !eventoActivado
+        {
+            if (corrutinaActual != null)
+            {
+                StopCoroutine(corrutinaActual);
+                corrutinaActual = null;
+            }
+        }
+    }
 
-        // Reproducir la voz de instrucciones
+    IEnumerator ReproducirVoz()
+    {
+        // Si ya está sonando, la reiniciamos
         if (vozInstrucciones != null)
+        {
+            vozInstrucciones.Stop();
+            vozInstrucciones.volume = 1f;
+            yield return new WaitForSeconds(delayAntesDeVoz);
             vozInstrucciones.Play();
+        }
 
-        // Esperar a que termine la voz antes de activar el evento
-        float duracionVoz = vozInstrucciones != null ? vozInstrucciones.clip.length : 0f;
-        yield return new WaitForSeconds(duracionVoz);
+        // Solo activar el evento una vez, cuando termine la voz
+        if (!eventoActivado)
+        {
+            float duracionVoz = vozInstrucciones != null ? vozInstrucciones.clip.length : 0f;
+            yield return new WaitForSeconds(duracionVoz);
+            eventoActivado = true;
+            if (eventManager != null)
+                eventManager.StartEvent();
+        }
+    }
 
-        // Activar el evento que mostrará el botón continuar
-        if (eventManager != null)
-            eventManager.StartEvent();
+    // Este método lo llama el CubeEventManager cuando el player aprieta Enter
+    public void FadeOutVoz()
+    {
+        if (vozInstrucciones != null && vozInstrucciones.isPlaying)
+            StartCoroutine(HacerFadeOut());
+    }
+
+    IEnumerator HacerFadeOut()
+    {
+        float volumenInicial = vozInstrucciones.volume;
+        float t = 0f;
+
+        while (t < duracionFadeOut)
+        {
+            t += Time.deltaTime;
+            vozInstrucciones.volume = Mathf.Lerp(volumenInicial, 0f, t / duracionFadeOut);
+            yield return null;
+        }
+
+        vozInstrucciones.Stop();
+        vozInstrucciones.volume = 1f;
     }
 }

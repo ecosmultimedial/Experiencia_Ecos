@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ public class VelaInteraccion : MonoBehaviour
     public Sprite imagenPopup;
     public MonoBehaviour scriptMovimientoPlayer;
 
-    [Header("Configuraci�n")]
+    [Header("Configuración")]
     public float duracionFadePrompt = 0.5f;
     public float segundosAntesDelPopup = 3f;
 
@@ -71,6 +71,9 @@ public class VelaInteraccion : MonoBehaviour
         if (scriptMovimientoPlayer != null) scriptMovimientoPlayer.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // ✨ REGISTRAR CHECKPOINT PARA VELA
+        EcosCheckpointManager.instancia.RegistrarCheckpoint(3); // VELA es cubículo 3
     }
 
     private IEnumerator FadePrompt(float desde, float hasta)

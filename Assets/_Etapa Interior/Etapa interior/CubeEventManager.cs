@@ -14,7 +14,7 @@ public class CubeEventManager : MonoBehaviour
     [Header("Portal")]
     public GameObject portal;
     public AudioSource sonidoPortal;
-    public float delayAntesDeSonido = 1f;
+    public float delayAntesDeSonido = 3f;
 
 
     [Header("Fade In Portal")]
@@ -24,6 +24,9 @@ public class CubeEventManager : MonoBehaviour
     [Header("Tiempos")]
     public float delayAntesDeBoton = 2f;
     public float fadeDuration = 3f;
+
+    [Header("Referencia al trigger de la silueta")]
+    public ProximityGlow proximityGlow;
 
     private bool activated = false;
     private bool canvasVisible = false;
@@ -54,6 +57,11 @@ public class CubeEventManager : MonoBehaviour
     {
         canvasVisible = false;
         continueCanvas.SetActive(false);
+
+        // Fade out suave de la voz antes de continuar
+        if (proximityGlow != null)
+            proximityGlow.FadeOutVoz();
+
         StartCoroutine(DesvaneceYMuestraPortal());
     }
 

@@ -4,7 +4,7 @@ public class TriggerCanvaUnaVez : MonoBehaviour
 {
     public GameObject canvas;
     public AudioSource audioNarracion; // Referencia al audio
-    public float duracion = 9f; // Ahora 7 segundos para coincidir con el audio
+    public float duracion = 9f;
     private bool yaActivado = false;
 
     void Start()
@@ -14,15 +14,32 @@ public class TriggerCanvaUnaVez : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !yaActivado)
+        if (other.CompareTag("Player"))
         {
-            yaActivado = true;
-            canvas.SetActive(true);
+            // El Canvas solo se muestra la primera vez
+            if (!yaActivado)
+            {
+                yaActivado = true;
+                canvas.SetActive(true);
+                Invoke("OcultarCanvas", duracion);
+            }
 
-            // Reproducir el audio con delay de 0.5 segundos
-            Invoke("ReproducirAudio", 0.5f);
+            // El audio se reproduce/reinicia CADA VEZ que entra
+            if (audioNarracion != null)
+            {
+                audioNarracion.Stop(); // Detener para reiniciar desde el inicio
+                Invoke("ReproducirAudio", 0.5f);
+            }
+        }
+    }
 
-            Invoke("OcultarCanvas", duracion);
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Cancelar los Invoke pendientes
+            CancelInvoke("ReproducirAudio");
+            // El audio sigue sonando mientras está afuera
         }
     }
 

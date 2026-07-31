@@ -7,10 +7,16 @@ public class EscaleraRotatoria : MonoBehaviour
     [Header("Configuración de rotación")]
     [Tooltip("Tiempo en segundos que tarda la escalera en rotar")]
     public float duracionRotacion = 2f;
+
     [Tooltip("Ángulo de ida (A→B). Define cuánto rota desde la posición inicial.")]
     public float anguloIda = 90f;
-    [Tooltip("Ángulo de vuelta (B→A). Normalmente es el opuesto al de ida (ej: si ida es 90, vuelta es -90), pero podés usar otro valor si querés que rote por un camino distinto.")]
+
+    [Tooltip("Ángulo de vuelta (B→A). Normalmente es el opuesto al de ida (ej: si ida es 90, vuelta es -90).")]
     public float anguloVuelta = -90f;
+
+    [Header("Audio")]
+    [Tooltip("AudioSource que reproduce el sonido de rotación")]
+    public AudioSource audioSourceEscalera;
 
     private Quaternion rotacionA;
     private bool estaRotando = false;
@@ -45,6 +51,13 @@ public class EscaleraRotatoria : MonoBehaviour
     private IEnumerator RotarRutina(Quaternion rotacionFinal, bool destinoEsB)
     {
         estaRotando = true;
+
+        // Reproducir audio al iniciar la rotación
+        if (audioSourceEscalera != null)
+        {
+            audioSourceEscalera.PlayOneShot(audioSourceEscalera.clip);
+        }
+
         Quaternion rotacionInicial = transform.rotation;
         float tiempoTranscurrido = 0f;
 

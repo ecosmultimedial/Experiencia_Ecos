@@ -11,8 +11,7 @@ public class BoatExitSystem : MonoBehaviour
     public FirstPersonController playerController;
     public CharacterController controller;
     public BoatInteraction boatInteraction;
-    public AudioSource vozNarradora; // Arrastrá acá el empty con el AudioSource
-
+    
     public float detectionRadius = 3f;
     private bool playerCanExit = false;
     private bool hasExited = false;
@@ -45,10 +44,7 @@ public class BoatExitSystem : MonoBehaviour
     {
         hasExited = true;
         pressQUI.SetActive(false);
-
-        // Detener sonido de la canoa
         boatInteraction.DetenerSonidoCanoa();
-
         player.transform.position = exitPoint.position;
         player.transform.rotation = exitPoint.rotation;
         controller.enabled = true;
@@ -56,9 +52,5 @@ public class BoatExitSystem : MonoBehaviour
         playerController.SprintSpeed = 6f;
         boatInteraction.playerOnBoat = false;
         boatInteraction.enabled = false;
-
-        // Reproducir voz narradora una sola vez
-        if (vozNarradora != null)
-            vozNarradora.Play();
     }
 }

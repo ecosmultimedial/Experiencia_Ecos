@@ -3920,6 +3920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vozInstrucciones: {fileID: 1911093688}
   delayAntesDeVoz: 1
+  duracionFadeOut: 1
   eventManager: {fileID: 383831330}
 --- !u!65 &63143564
 BoxCollider:
@@ -11617,11 +11618,12 @@ MonoBehaviour:
   siluetas: []
   portal: {fileID: 919132149384222846}
   sonidoPortal: {fileID: 443211872}
-  delayAntesDeSonido: 1
+  delayAntesDeSonido: 3
   panelNegro: {fileID: 578788216}
   duracionFadePortal: 1
-  delayAntesDeBoton: 2
-  fadeDuration: 0.2
+  delayAntesDeBoton: 4
+  fadeDuration: 2
+  proximityGlow: {fileID: 2060259454}
 --- !u!1001 &395565215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14588,12 +14590,12 @@ PrefabInstance:
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.757311
+      value: 10.378472
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 213.44623
+      value: -23.948788
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664760, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -18167,7 +18169,6 @@ MonoBehaviour:
   playerController: {fileID: 286240219}
   controller: {fileID: 286240220}
   boatInteraction: {fileID: 1216790133}
-  vozNarradora: {fileID: 1588080170}
   detectionRadius: 3
 --- !u!65 &596545951
 BoxCollider:
@@ -27242,6 +27243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vozInstrucciones: {fileID: 0}
   delayAntesDeVoz: 1
+  duracionFadeOut: 1
   eventManager: {fileID: 0}
 --- !u!135 &974536034
 SphereCollider:
@@ -30468,6 +30470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vozInstrucciones: {fileID: 225022281}
   delayAntesDeVoz: 0.5
+  duracionFadeOut: 1
   eventManager: {fileID: 383831330}
 --- !u!1001 &1075029809
 PrefabInstance:
@@ -33351,6 +33354,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1187822067}
+  - component: {fileID: 1187822069}
+  - component: {fileID: 1187822068}
   m_Layer: 0
   m_Name: PlayerExitPoint
   m_TagString: Untagged
@@ -33373,6 +33378,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1124857457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187822068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187822066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0399388442b9bac4da007ab21a755a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voice: {fileID: 1588080170}
+--- !u!65 &1187822069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187822066}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.1004353, y: 2.7058487, z: 2.838867}
+  m_Center: {x: -0.25039807, y: 0.85292435, z: 0.9194335}
 --- !u!1001 &1190302762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52262,6 +52301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vozInstrucciones: {fileID: 0}
   delayAntesDeVoz: 1
+  duracionFadeOut: 1
   eventManager: {fileID: 383831330}
 --- !u!135 &1836018769
 SphereCollider:
@@ -57062,6 +57102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vozInstrucciones: {fileID: 1112431110}
   delayAntesDeVoz: 0.5
+  duracionFadeOut: 1
   eventManager: {fileID: 383831330}
 --- !u!95 &2060259455
 Animator:

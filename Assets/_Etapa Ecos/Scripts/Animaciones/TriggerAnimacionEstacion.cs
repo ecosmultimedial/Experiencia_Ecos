@@ -23,6 +23,10 @@ public class TriggerAnimacionEstacion : MonoBehaviour
     [Header("Bloqueo del player")]
     public MonoBehaviour scriptMovimientoPlayer;
 
+    [Header("Checkpoint")]
+    [Tooltip("Número del cubículo (1=FLOR, 2=STICKERS, 4=TRAMAS)")]
+    public int numeroCubiculo = 0;
+
     [Header("Otros")]
     public bool unSoloUso = true;
 
@@ -74,8 +78,13 @@ public class TriggerAnimacionEstacion : MonoBehaviour
 
         foreach (var obj in objetosAActivar)
             if (obj != null) obj.SetActive(true);
-
         foreach (var obj in objetosADesactivar)
             if (obj != null) obj.SetActive(false);
+
+        // ✨ REGISTRAR CHECKPOINT
+        if (numeroCubiculo > 0)
+        {
+            EcosCheckpointManager.instancia.RegistrarCheckpoint(numeroCubiculo);
+        }
     }
 }
