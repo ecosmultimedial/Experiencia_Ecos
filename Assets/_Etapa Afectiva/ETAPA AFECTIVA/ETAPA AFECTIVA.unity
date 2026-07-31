@@ -26852,6 +26852,7 @@ MonoBehaviour:
   zocalo: {fileID: 0}
   musicaGeneral: {fileID: 0}
   duracionFadeMusica: 2
+  proximidadPortal: {fileID: 0}
 --- !u!1001 &693853559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42431,6 +42432,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2862278905927072854, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2862278905927072854, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
+        type: 3}
       propertyPath: m_StreamingVersion
       value: 20170927
       objectReference: {fileID: 0}
@@ -42478,6 +42484,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126527961139664767, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
+        type: 3}
+      propertyPath: field of view
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5126527961139664767, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
