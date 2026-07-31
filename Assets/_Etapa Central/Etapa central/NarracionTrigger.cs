@@ -26,6 +26,8 @@ public class NarracionTrigger : MonoBehaviour
     [Tooltip("GameObject con collider solido (no trigger) que bloquea el paso al portal mientras dura el audio.")]
     public GameObject paredBloqueoAudio;
 
+    private bool zocaloYaMostrado = false;
+
     private Collider miCollider;
     private Coroutine fadeEnCurso;
 
@@ -54,8 +56,7 @@ public class NarracionTrigger : MonoBehaviour
 
     private void Reproducir()
     {
-        // Si se vuelve a entrar al trigger, cancelamos cualquier cuenta pendiente de la vez anterior
-        CancelInvoke(nameof(OcultarZocalo));
+        // Esto se repite cada vez que se entra al trigger
         CancelInvoke(nameof(DesbloquearPaso));
 
         if (paredBloqueoAudio != null) paredBloqueoAudio.SetActive(true);
@@ -72,6 +73,10 @@ public class NarracionTrigger : MonoBehaviour
         {
             DesbloquearPaso();
         }
+
+        // Esto solo se ejecuta la primera vez
+        if (zocaloYaMostrado) return;
+        zocaloYaMostrado = true;
 
         if (zocalo != null)
         {
