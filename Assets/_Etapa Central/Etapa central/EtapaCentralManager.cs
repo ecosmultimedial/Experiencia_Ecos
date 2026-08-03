@@ -52,12 +52,27 @@ public class EtapaCentralManager : MonoBehaviour
 
     private void Start()
     {
+        string origen = PlayerPrefs.GetString("OrigenEscena", "Desconexion");
+
+        if (panelBlancoFade != null)
+        {
+            if (origen == "Desconexion")
+            {
+                panelBlancoFade.alpha = 1f;
+                panelBlancoFade.blocksRaycasts = true;
+            }
+            else
+            {
+                panelBlancoFade.alpha = 0f;
+                panelBlancoFade.blocksRaycasts = false;
+            }
+        }
+
         PosicionarPlayerSegunOrigen();
         DesplegarPuenteSegunOrigen();
         ActualizarSkybox();
         ActivarTriggerSegunProgreso();
 
-        string origen = PlayerPrefs.GetString("OrigenEscena", "Desconexion");
         if (origen == "Desconexion")
         {
             StartCoroutine(IntroCinematicaBienvenida());

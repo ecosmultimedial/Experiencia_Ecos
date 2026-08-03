@@ -2902,8 +2902,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idNarracion: Interior
-  zocalo: {fileID: 1601055812}
-  zocaloTexto: {fileID: 1601055811}
+  zocalo: {fileID: 0}
+  zocaloTexto: {fileID: 0}
   vozNarracion: {fileID: 1467503291}
   duracionFadeIn: 0.5
   duracionFadeOut: 0.5
@@ -4148,7 +4148,7 @@ MonoBehaviour:
   marcarEtapaComoCompletada: 0
   zocalo: {fileID: 0}
   musicaGeneral: {fileID: 1236088713}
-  duracionFadeMusica: 4
+  duracionFadeMusica: 2
   proximidadPortal: {fileID: 1968431959}
 --- !u!65 &696311736
 BoxCollider:
@@ -7080,7 +7080,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3e4115d5436eed4488bdc5178eea82d8, type: 2}
+      objectReference: {fileID: 2100000, guid: 71aaf796153ed134eacac3289876ac6a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -5568371526223589888, guid: 27bd2f87004f751458b9178f379fa388, type: 3}
@@ -8141,7 +8141,7 @@ MonoBehaviour:
   marcarEtapaComoCompletada: 0
   zocalo: {fileID: 0}
   musicaGeneral: {fileID: 1236088713}
-  duracionFadeMusica: 4
+  duracionFadeMusica: 2
   proximidadPortal: {fileID: 848304027}
 --- !u!65 &1514319047
 BoxCollider:
@@ -8732,7 +8732,7 @@ MonoBehaviour:
   marcarEtapaComoCompletada: 0
   zocalo: {fileID: 1601055811}
   musicaGeneral: {fileID: 1236088713}
-  duracionFadeMusica: 4
+  duracionFadeMusica: 2
   proximidadPortal: {fileID: 1625096014}
 --- !u!65 &1556599524
 BoxCollider:
