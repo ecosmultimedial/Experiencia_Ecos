@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -73,9 +73,13 @@ public class HojaController : MonoBehaviour
         mesaInteraction.yaCompletado = true;
         botonContinuar.gameObject.SetActive(false);
 
-        if (sistemaLuces != null)
-            sistemaLuces.IniciarGrupo2(); // <- llama al grupo 2
+        // ← NUEVA LÍNEA: cerrar panel de instrucciones
+        var instruccionesPanel = GetComponentInParent<Transform>().GetComponent<InstruccionesPanel>();
+        if (instruccionesPanel != null)
+            instruccionesPanel.CerrarPanelInstrucciones();
 
+        if (sistemaLuces != null)
+            sistemaLuces.IniciarGrupo2();
         mesaInteraction.CerrarHoja();
     }
 }
