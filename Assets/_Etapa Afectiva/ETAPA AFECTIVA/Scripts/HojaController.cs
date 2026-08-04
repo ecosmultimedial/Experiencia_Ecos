@@ -73,11 +73,6 @@ public class HojaController : MonoBehaviour
         mesaInteraction.yaCompletado = true;
         botonContinuar.gameObject.SetActive(false);
 
-        // ← NUEVA LÍNEA: cerrar panel de instrucciones
-        var instruccionesPanel = GetComponentInParent<Transform>().GetComponent<InstruccionesPanel>();
-        if (instruccionesPanel != null)
-            instruccionesPanel.CerrarPanelInstrucciones();
-
         if (sistemaLuces != null)
             sistemaLuces.IniciarGrupo2();
         mesaInteraction.CerrarHoja();

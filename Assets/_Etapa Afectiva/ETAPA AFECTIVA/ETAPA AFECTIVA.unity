@@ -21948,8 +21948,8 @@ Transform:
   - {fileID: 1871247418}
   - {fileID: 1908400127}
   - {fileID: 1149558335}
-  - {fileID: 1986256938}
   - {fileID: 863925792}
+  - {fileID: 1709172085}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285679521
@@ -40395,7 +40395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1409772355
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40489,11 +40489,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1409772354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b0cfd478e86454a98139a2e705b7a0, type: 3}
+  m_Script: {fileID: 11500000, guid: d68307518c7f9c44ca1dfa9734f96175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botonInstrucciones: {fileID: 0}
-  panelInstrucciones: {fileID: 0}
+  botonInstrucciones: {fileID: 1700123158}
+  hojaController: {fileID: 1409772358}
 --- !u!1 &1411888886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8c7c2dd56ae188e4eb0afb1567d191bf,
@@ -42639,8 +42639,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1409772355}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.67352086, y: 0.72300005}
-  m_AnchorMax: {x: 0.7872709, y: 0.79800004}
+  m_AnchorMin: {x: 0.6765625, y: 0.808}
+  m_AnchorMax: {x: 0.76843756, y: 0.89800006}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -42708,7 +42708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 996b21e1df0b7334fa8564c0417c3a68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4cd908c0ec6f42a479cd560e6d5364db, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -42918,6 +42918,37 @@ MonoBehaviour:
   sonidoCorrecto: {fileID: 8300000, guid: de861ac1e26122f4a902862e85af6a10, type: 3}
   sonidoIncorrecto: {fileID: 8300000, guid: a1a8078adacddea45b1bbb2139d1319e, type: 3}
   hojaController: {fileID: 1409772358}
+--- !u!1 &1709172084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709172085}
+  m_Layer: 0
+  m_Name: PuntoVista
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1709172085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709172084}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.022, y: 0.048, z: -0.817}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 284209449}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1709819822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5104816704086625211, guid: 8c7c2dd56ae188e4eb0afb1567d191bf,
@@ -49687,7 +49718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   botonContinuar: {fileID: 1077286707}
   sistemaLuces: {fileID: 838152409}
-  puntoFijo: {fileID: 1986256938}
+  puntoVista: {fileID: 1709172085}
+  velocidadTransicion: 0.5
 --- !u!4 &1908400127
 Transform:
   m_ObjectHideFlags: 0
@@ -49697,7 +49729,7 @@ Transform:
   m_GameObject: {fileID: 1908400125}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.034567595, y: -0.34496468, z: -0.6220684}
+  m_LocalPosition: {x: 0.034567595, y: 0.017, z: -0.6220684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50945,37 +50977,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1844564748}
   m_SourcePrefab: {fileID: 100100000, guid: b1e160ba77da4ec43939e5f7b6651bcd, type: 3}
---- !u!1 &1986256937
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1986256938}
-  m_Layer: 0
-  m_Name: PuntoFijo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1986256938
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986256937}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.034567595, y: -0.376, z: -0.839}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 284209449}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021137236 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3580706322546724510, guid: 5b5ae4b1fb50d104189d2b6707cd6190,
