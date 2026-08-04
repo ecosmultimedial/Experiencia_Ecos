@@ -49,29 +49,37 @@ public class PortalEscena : MonoBehaviour
 
     private IEnumerator FadeMusicaYCambiarEscena()
     {
+        float duracionAudioEfectiva = duracionFadeMusica;
+
+        if (usarFadeNegro && FadeManager.Instance != null)
+            duracionAudioEfectiva = Mathf.Min(duracionFadeMusica, FadeManager.Instance.DuracionFade);
+
         if (proximidadPortal != null)
-        {
-            proximidadPortal.ForzarFadeOut(duracionFadeMusica);
-        }
+            proximidadPortal.ForzarFadeOut(duracionAudioEfectiva);
 
         if (musicaGeneral != null)
-        {
-            float volumenInicial = musicaGeneral.volume;
-            float t = 0f;
-
-            while (t < duracionFadeMusica)
-            {
-                t += Time.deltaTime;
-                musicaGeneral.volume = Mathf.Lerp(volumenInicial, 0f, t / duracionFadeMusica);
-                yield return null;
-            }
-
-            musicaGeneral.volume = 0f;
-        }
+            StartCoroutine(FadeVolumenMusica(musicaGeneral, duracionAudioEfectiva));
 
         if (usarFadeNegro && FadeManager.Instance != null)
             FadeManager.Instance.CambiarEscena(nombreEscena);
         else
             SceneManager.LoadScene(nombreEscena);
+
+        yield return null;
+    }
+
+    private IEnumerator FadeVolumenMusica(AudioSource source, float duracion)
+    {
+        float volumenInicial = source.volume;
+        float t = 0f;
+
+        while (t < duracion)
+        {
+            t += Time.deltaTime;
+            source.volume = Mathf.Lerp(volumenInicial, 0f, t / duracion);
+            yield return null;
+        }
+
+        source.volume = 0f;
     }
 }

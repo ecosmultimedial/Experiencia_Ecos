@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,12 +10,12 @@ public class CartelActividad : MonoBehaviour
     [Header("UI")]
     [SerializeField] private Button botonContinuar;
 
-    [Header("Sistema de luces guía")]
+    [Header("Sistema de luces guÃ­a")]
     [SerializeField] private SistemaLucesGuia sistemaLuces;
 
-    [Header("Bloqueo de cámara")]
-    [SerializeField] private Transform puntoVista; // <- PuntoVista que creaste
-    [SerializeField] private float velocidadTransicion = 3f; // Velocidad de transición
+    [Header("Bloqueo de cÃ¡mara")]
+    [SerializeField] private Transform puntoVista;
+    [SerializeField] private float velocidadTransicion = 3f;
 
     private Image imagenBoton;
     private bool actividadCompletada = false;
@@ -51,24 +51,29 @@ public class CartelActividad : MonoBehaviour
 
     public void BloquearMovimiento()
     {
-        // Detener al player
+        Debug.Log("=== BloquearMovimiento() LLAMADO ===");
+
         if (playerController != null)
             playerController.enabled = false;
 
-        // Deshabilitar input de la cámara
         if (virtualCamera != null)
         {
-            var inputProvider = virtualCamera.GetComponent<MonoBehaviour>();
-            if (inputProvider != null)
-                inputProvider.enabled = false;
+            virtualCamera.enabled = false;
+            Debug.Log("âœ“ Cinemachine deshabilitado");
         }
 
-        // Transición suave de la cámara hacia puntoVista
         if (transicionCamara != null)
             StopCoroutine(transicionCamara);
 
         if (puntoVista != null)
+        {
+            Debug.Log("âœ“ Iniciando transiciÃ³n de cÃ¡mara...");
             transicionCamara = StartCoroutine(TransicionCamara());
+        }
+        else
+        {
+            Debug.LogError("âœ— puntoVista es NULL");
+        }
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -76,15 +81,26 @@ public class CartelActividad : MonoBehaviour
 
     private IEnumerator TransicionCamara()
     {
-        Transform camaraTransform = virtualCamera.transform;
+        // Obtener la MAIN CAMERA, no la virtualCamera
+        Camera camaraMain = Camera.main;
+        if (camaraMain == null)
+        {
+            Debug.LogError("âœ— Main Camera no encontrada");
+            yield break;
+        }
+
+        Transform camaraTransform = camaraMain.transform;
         Vector3 posInicial = camaraTransform.position;
         Quaternion rotInicial = camaraTransform.rotation;
 
         Vector3 posFinal = puntoVista.position;
         Quaternion rotFinal = puntoVista.rotation;
 
+        Debug.Log($"PosiciÃ³n inicial: {posInicial}");
+        Debug.Log($"PosiciÃ³n final: {posFinal}");
+
         float tiempo = 0f;
-        float duracion = 1f / velocidadTransicion; // Ajusta la duración según la velocidad
+        float duracion = 1f / velocidadTransicion;
 
         while (tiempo < duracion)
         {
@@ -99,6 +115,8 @@ public class CartelActividad : MonoBehaviour
 
         camaraTransform.position = posFinal;
         camaraTransform.rotation = rotFinal;
+
+        Debug.Log("âœ“ TransiciÃ³n completada");
     }
 
     private void DesbloquearMovimiento()
@@ -106,11 +124,11 @@ public class CartelActividad : MonoBehaviour
         if (playerController != null)
             playerController.enabled = true;
 
+        // CRÃTICO: Reactivar Cinemachine
         if (virtualCamera != null)
         {
-            var inputProvider = virtualCamera.GetComponent<MonoBehaviour>();
-            if (inputProvider != null)
-                inputProvider.enabled = true;
+            virtualCamera.enabled = true;
+            Debug.Log("âœ“ Cinemachine reactivado");
         }
 
         Cursor.lockState = CursorLockMode.Locked;

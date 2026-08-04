@@ -9,6 +9,7 @@ public class FadeManager : MonoBehaviour
 
     [SerializeField] private CanvasGroup fadeCanvasGroup;
     [SerializeField] private float duracionFade = 1f;
+    public float DuracionFade => duracionFade;
 
     private bool vieneDeFadeOut = false;  // marca si la escena anterior hizo fade negro
 

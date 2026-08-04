@@ -3140,7 +3140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeCanvasGroup: {fileID: 303688268}
-  duracionFade: 1
+  duracionFade: 2
 --- !u!4 &451402567
 Transform:
   m_ObjectHideFlags: 0
@@ -4334,8 +4334,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8815855, y: 0.8390037, z: 1.6537343}
-  m_Center: {x: -0.03312275, y: -0.08049601, z: 0.0825327}
+  m_Size: {x: 1.1228796, y: 0.8390037, z: 1.653734}
+  m_Center: {x: 0.08752522, y: -0.08049601, z: 0.0825327}
 --- !u!1 &735574722 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2727039027848505418, guid: 6e00060128e194543910487f68e558af,
@@ -5335,7 +5335,7 @@ MonoBehaviour:
   marcarEtapaComoCompletada: 0
   zocalo: {fileID: 0}
   musicaGeneral: {fileID: 1236088713}
-  duracionFadeMusica: 4
+  duracionFadeMusica: 3
   proximidadPortal: {fileID: 664481329}
 --- !u!65 &897793600
 BoxCollider:
@@ -5356,8 +5356,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3935629, y: 0.8390037, z: 0.94666165}
-  m_Center: {x: 0.010674952, y: -0.08049601, z: 0.10177123}
+  m_Size: {x: 1.3935629, y: 0.8390037, z: 1.2799137}
+  m_Center: {x: 0.010674952, y: -0.08049601, z: -0.06485656}
 --- !u!1 &911671675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8543,8 +8543,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8815855, y: 0.8390037, z: 1.6537343}
-  m_Center: {x: -0.03312275, y: -0.08049601, z: 0.0825327}
+  m_Size: {x: 1.3572645, y: 0.8390037, z: 1.653734}
+  m_Center: {x: -0.27096283, y: -0.08049601, z: 0.0825327}
 --- !u!1 &1537361627
 GameObject:
   m_ObjectHideFlags: 0
@@ -9111,7 +9111,7 @@ MonoBehaviour:
   usarFadeNegro: 1
   identificadorOrigen: Interior
   marcarEtapaComoCompletada: 0
-  zocalo: {fileID: 1601055811}
+  zocalo: {fileID: 0}
   musicaGeneral: {fileID: 1236088713}
   duracionFadeMusica: 2
   proximidadPortal: {fileID: 1625096014}
@@ -9134,8 +9134,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3935629, y: 0.8390037, z: 1.0751016}
-  m_Center: {x: 0.010674952, y: -0.08049601, z: 0.03755181}
+  m_Size: {x: 1.3935629, y: 0.8390037, z: 1.3402811}
+  m_Center: {x: 0.010674952, y: -0.08049601, z: 0.17014629}
 --- !u!1 &1559312869
 GameObject:
   m_ObjectHideFlags: 0
