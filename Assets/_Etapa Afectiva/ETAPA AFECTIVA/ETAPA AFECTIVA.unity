@@ -6675,7 +6675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9501ea5e1221a4a9f7dc20bf04d6ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 744c001de15f3314992f79be801a8c33, type: 3}
+  audioClip: {fileID: 8300000, guid: c380995597e4f8748a1a6365b38c6717, type: 3}
   loop: 0
   detenerAlSalir: 0
   reproducirSoloUnaVez: 0
